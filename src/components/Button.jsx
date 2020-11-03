@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import {useState} from "react";
 
+
 // classNames - с помощью неё мы задаем классы тегам, как представлено ниже
 
 const Button = ({text, outline}) => {
@@ -27,7 +28,7 @@ const Button = ({text, outline}) => {
             // он будет выполняться только в том случае если outline true. Например так прокидывают класс active
           })}
       >
-      {text}
+      {text} 
       </button>
       {/* <p>{textClick} {count} раз</p> */}
     </div>

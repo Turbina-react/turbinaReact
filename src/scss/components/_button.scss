@@ -11,13 +11,8 @@
   line-height: 19px;
   text-align: center;
   margin: 8px;
-  @include noselect();
-
-  &,
-  span {
-    color: $buttonTheme;
-    padding: 8px 20px;
-  }
+  color: $buttonTheme;
+  padding: 8px 20px;
 
   &:hover {
     background-color: transparent;
@@ -26,4 +21,10 @@
   &:active {
     transform: translateY(1px);
   }
+
+  @media screen and (max-width: 320px) {
+    font-size: 12px;
+    padding: 6px 17px;
+  }
 }
+
