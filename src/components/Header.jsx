@@ -13,7 +13,7 @@ const Header = () => {
         <div>лого</div>
       <img src={titlePng} alt=""/>
       <h1>Турбина</h1>
-      <div>Плеер</div>
+      <div>Плеер 2</div>
     </div>
   )
 }
