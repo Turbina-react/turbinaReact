@@ -1,0 +1,49 @@
+@import '../variables.scss';
+
+// пример со стилями, его удалить и написать свой
+
+.button {
+  display: inline-block;
+  background-color: $orange;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 100px;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  @include noselect();
+
+  &,
+  span {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: darken($orange, 8%);
+  }
+
+  &:active {
+    background-color: darken($orange, 12%);
+    transform: translateY(1px);
+  }
+
+
+  &--outline {
+    background-color: #8a8a8a;
+    border-color: $orange;
+
+    &:hover {
+      background-color: $orange;
+
+      &,
+      span {
+        color: #c12525;
+      }
+
+    }
+
+  }
+
+}

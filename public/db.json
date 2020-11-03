@@ -1,0 +1,105 @@
+{
+  "burgers": [
+    {
+      "id": 0,
+
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/fd5d1a31cbc4becec1bd3a7069d08ce3-full.jpg",
+      "name": "Крабс бургер",
+      "types": [0, 1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 803,
+      "category": 4,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/125fd1d755be92efe1bb937ac7ff745c-full.jpg",
+      "name": "Сырный",
+      "types": [0],
+      "sizes": ["Junior", "", "Senior"],
+      "price": 245,
+      "category": 0,
+      "rating": 6
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/07bc396e24423e1c30651bc22590cc59-full.jpg",
+      "name": "Цыпленок барбекю",
+      "types": [0],
+      "sizes": ["Junior", "", "Senior"],
+      "price": 295,
+      "category": 2,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/d919cb0fad4e136f8a16f63feefca9a8-full.jpg",
+      "name": "Рыбный бургер",
+      "types": [1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 275,
+      "category": 4,
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/e692438bf5062a1f07494369cd0fddb0-full.jpg",
+      "name": "Чизбургер-пицца",
+      "types": [0, 1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 415,
+      "category": 0,
+      "rating": 8
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/3e624059745ca77754f263e31866a1ad-full.jpg",
+      "name": "Ржаной бургер",
+      "types": [1],
+      "sizes": ["", "Middle", "Senior"],
+      "price": 580,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/d3a10c1b4aea9a79062ac1d35a5ba6c3-full.jpg",
+      "name": "Цезарь бургер",
+      "types": [0, 1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 675,
+      "category": 0,
+      "rating": 9
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/69bc127d70fbc78e7bbe439ca7b46cc1-full.jpg",
+      "name": "Васаби-бургер",
+      "types": [0, 1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 450,
+      "category": 3,
+      "rating": 10
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/1d5dd7390ed61baed8306f6c7ce46eee-full.jpg",
+      "name": "По-фински с копченой форелью",
+      "types": [0, 1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 395,
+      "category": 4,
+      "rating": 10
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://cdn1.savepice.ru/uploads/2020/10/28/faf84073849bfa6909085df510602053-full.jpg",
+      "name": "Булка и салат 🌱",
+      "types": [0, 1],
+      "sizes": ["Junior", "Middle", "Senior"],
+      "price": 285,
+      "category": 1,
+      "rating": 7
+    }
+  ]
+}
