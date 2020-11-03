@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className={classNames('header')}>
         {/*<img src={titlePng} alt=""/>*/}
-        <div>лого</div>
+        <div>123</div>
       <img src={titlePng} alt=""/>
       <h1>Турбина</h1>
       <div>Плеер 2</div>
