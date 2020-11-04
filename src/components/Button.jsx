@@ -15,7 +15,7 @@ const Button = ({text, outline}) => {
     // при клике делаем count = 0+1 и обновляем страницу, вы не заметите это глазом, но она обновилась
     // далее count = 1, кликаем count 1+1, в <p> ниже count выведет вы "кликнули 2 раз"
   }
-  console.log(text);
+  // console.log(text);
 
   return (
     <div className="buttonWrapper">

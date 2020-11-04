@@ -8,20 +8,63 @@
   left: 0;
   border: 1px solid yellowgreen;
   margin-bottom: 30px;
+  padding: 0 10px;
 
   &__wrapper {
     width: 90%;
+    margin: 0 10px;
   }
 
   &__main {
     display: flex;
-    border: 1px solid red;
-  }
-  &__item {
-    border: 1px solid red;
-    width: 84%;
+      @media screen and (max-width: 550px) {
+      display: block;
+    }
+
+    button {
+      @media screen and (max-width: 550px) {
+        width: 90%;
+        display: block;
+        margin: 20px auto 0 auto;
+      }
+    }
   }
 
+  &__item {
+    width: 100%;
+    margin-right: 10px;
+    @media screen and (max-width: 550px) {
+      width: 100%;
+    }
+  }
+
+  &__time {
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &__artist {
+    display: flex;
+    flex: 1 1;
+  }
+  &__artistName {
+    flex: 1 1;
+    margin-top: 0;
+    text-overflow: ellipsis;
+    width: 100px;
+    overflow: hidden;
+    height: 1.2em;
+    white-space: nowrap;
+    overflow-wrap: break-word;
+    outline-style: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
   &__details {
     display: flex;
 
@@ -31,15 +74,31 @@
       font-size: 18px;
       line-height: 22px;
       color: #FFFFFF;
+      margin-top: 16px;
+      text-overflow: ellipsis;
+      @media screen and (max-width: 550px) {
+        font-size: 14px;
+      }
     }
   }
 
-
+  &__release {
+    margin: 30px 0 0 0;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
 
   &__list {
-
+    h2, p {
+      font-style: italic;
+    }
   }
 }
+
+
 
 .player__seekbar {
   input[type="range"] {
@@ -51,72 +110,86 @@
     //overflow: hidden;
   }
 }
+
 .dash {
   padding: 0 10px;
 }
+
 .controls {
   cursor: pointer;
-  padding: 5px;
-  margin: 0 auto;
+  margin: 16px auto 0 auto;
+
 }
-.checkbox {
+
+.openPopup {
   cursor: pointer;
-  padding: 5px;
-  margin: 0 auto;
-  svg {
-    path {
-      stroke: #f2f2f2;
-    }
+  margin: 16px auto 0 auto;
+  width: 24px;
+  height: 24px;
+  @media screen and (max-width: 550px) {
+    width: 16px;
+    height: 16px;
   }
-
-  input {
-    display: none;
-  }
-
-  label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #E8E8E8;
-    background: #ffffff;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    //transition: opacity 0.2s ease-in-out;
-
-    svg {
-      opacity: 0;
-    }
-  }
-
-  //&:hover {
-  //  label {
-  //    background: #F2F2F2;
-  //    border: 2px solid #F2F2F2;
-  //
-  //    svg {
-  //      transition: opacity 0.2s ease-in-out;
-  //      opacity: 0.4;
-  //
-  //      path {
-  //        stroke: #B3B3B3;
-  //      }
-  //    }
-  //  }
-  //}
-
-  input:checked + label {
-    background: #4DD599;
-    border: 2px solid #4DD599;
-
-    svg {
-      opacity: 1;
-
-      path {
-        stroke: #fff;
-      }
-    }
-  }
-
 }
+
+//.checkbox {
+//  cursor: pointer;
+//  padding: 5px;
+//  margin: 0 auto;
+//  svg {
+//    path {
+//      stroke: #f2f2f2;
+//    }
+//  }
+//
+//  input {
+//    display: none;
+//  }
+//
+//  label {
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    border: 2px solid #E8E8E8;
+//    background: #ffffff;
+//    border-radius: 50%;
+//    width: 20px;
+//    height: 20px;
+//    cursor: pointer;
+//    //transition: opacity 0.2s ease-in-out;
+//
+//    svg {
+//      opacity: 0;
+//    }
+//  }
+//
+//  //&:hover {
+//  //  label {
+//  //    background: #F2F2F2;
+//  //    border: 2px solid #F2F2F2;
+//  //
+//  //    svg {
+//  //      transition: opacity 0.2s ease-in-out;
+//  //      opacity: 0.4;
+//  //
+//  //      path {
+//  //        stroke: #B3B3B3;
+//  //      }
+//  //    }
+//  //  }
+//  //}
+//
+//  input:checked + label {
+//    background: #4DD599;
+//    border: 2px solid #4DD599;
+//
+//    svg {
+//      opacity: 1;
+//
+//      path {
+//        stroke: #fff;
+//      }
+//    }
+//  }
+//
+//}
