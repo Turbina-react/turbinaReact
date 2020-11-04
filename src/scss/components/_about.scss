@@ -17,6 +17,7 @@
   margin-top: -10px;
   z-index: 2;
 
+
   @media screen and (max-width: 1024px) {
     padding-top: 10px;
   }
@@ -27,17 +28,28 @@
 }
 
 .about__text {
-  font-size: 16px;
-  line-height: 22px;
-  padding-top: 40px;
-  margin: 0 auto 0 50px;
-  max-width: 760px;
+font-size: 16px;
+line-height: 22px;
+padding-top: 40px;
+margin: 0 auto 0 50px;
+max-width: 760px;
 
-  @media screen and (max-width: 1024px) {
-    font-size: 15px;
-    max-width: 680px;
-  }
+@media screen and (max-width: 1024px) {
+font-size: 15px;
+max-width: 680px;
+}
 
+@media screen and (max-width: 768px) {
+max-width: 648px;
+}
+
+@media screen and (max-width: 320px) {
+max-width: 270px;
+padding-top: 30px;
+margin: 0 auto 0 20px;
+font-size: 12px;
+line-height: 16px;
+}
   @media screen and (max-width: 768px) {
     max-width: 648px;
     margin: 0 50px;
@@ -53,33 +65,33 @@
 }
 
 .about__header {
-  font-size: 50px;
-  line-height: 60px;
-  font-weight: 400;
-  font-style: italic;
-  margin: 90px auto 0 50px;
+font-size: 50px;
+line-height: 60px;
+font-weight: 400;
+font-style: italic;
+margin: 90px auto 0 50px;
 
-  @media screen and (max-width: 1024px) {
-    margin-top: 80px;
-    font-size: 46px;
-    line-height: 56px;
-  }
+@media screen and (max-width: 1024px) {
+margin-top: 80px;
+font-size: 46px;
+line-height: 56px;
+}
 
-  @media screen and (max-width: 768px) {
-    font-size: 42px;
-    line-height: 51px;
-  }
+@media screen and (max-width: 768px) {
+font-size: 42px;
+line-height: 51px;
+}
 
-  @media screen and (max-width: 320px) {
-    font-size: 32px;
-    line-height: 38px;
-    margin: 60px auto 0 20px;
-    max-width: 270px;
-  }
+@media screen and (max-width: 320px) {
+font-size: 32px;
+line-height: 38px;
+margin: 60px auto 0 20px;
+max-width: 270px;
+}
 }
 
 .about__list-element {
-  list-style-type: disc;
-  margin-bottom: 14px;
-  list-style-position: inside;
+list-style-type: disc;
+margin-bottom: 14px;
+list-style-position: inside;
 }

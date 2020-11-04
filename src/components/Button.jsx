@@ -15,10 +15,10 @@ const Button = ({text, outline}) => {
     // при клике делаем count = 0+1 и обновляем страницу, вы не заметите это глазом, но она обновилась
     // далее count = 1, кликаем count 1+1, в <p> ниже count выведет вы "кликнули 2 раз"
   }
-  console.log(text);
+  // console.log(text);
 
   return (
-    <div>
+    <div className="buttonWrapper">
       <button
         onClick={clickPoKnopke}  // onClick это слушатель на кнопку, в скобках передается название функции
         className={classNames(
@@ -28,7 +28,7 @@ const Button = ({text, outline}) => {
             // он будет выполняться только в том случае если outline true. Например так прокидывают класс active
           })}
       >
-      {text} 
+      {text}
       </button>
       {/* <p>{textClick} {count} раз</p> */}
     </div>
