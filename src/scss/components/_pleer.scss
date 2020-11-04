@@ -1,25 +1,40 @@
 .player {
   position: absolute;
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   bottom: 0;
   left: 0;
   border: 1px solid yellowgreen;
+  margin-bottom: 30px;
 
   &__wrapper {
-    width: 100%;
+    width: 90%;
+  }
+
+  &__main {
+    display: flex;
+    border: 1px solid red;
+  }
+  &__item {
+    border: 1px solid red;
+    width: 84%;
   }
 
   &__details {
     display: flex;
+
     h2, p {
-      color: #ffffff;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      color: #FFFFFF;
     }
   }
 
-  &__main {
 
-  }
 
   &__list {
 
@@ -37,9 +52,15 @@
   }
 }
 
-
+.controls {
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 auto;
+}
 .checkbox {
-
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 auto;
   svg {
     path {
       stroke: #f2f2f2;

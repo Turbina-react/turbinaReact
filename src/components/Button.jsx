@@ -18,7 +18,7 @@ const Button = ({text, outline}) => {
   console.log(text);
 
   return (
-    <div>
+    <div className="buttonWrapper">
       <button
         onClick={clickPoKnopke}  // onClick это слушатель на кнопку, в скобках передается название функции
         className={classNames(

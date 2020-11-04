@@ -1,10 +1,12 @@
 @import '../variables.scss';
 
 // пример со стилями, его удалить и написать свой
-
+.buttonWrapper{
+  margin: 0 auto;
+}
 .button {
   display: inline-block;
-
+  white-space: pre;
   background-color: transparent;
   border: 2px $buttonTheme solid;
   border-radius: 30px;

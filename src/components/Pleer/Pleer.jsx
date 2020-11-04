@@ -10,27 +10,27 @@ const Pleer = () => {
 
   return (
     <div className="player">
-      <div className="playPauseControl">
+      <div className="controls">
         <i className={classNames("fa faPlay")}></i>
         <i className={classNames("fa faPause")}><img src={pausePng} alt=""/></i>
       </div>
+
       <div className="player__wrapper">
         <div className="player__main">
-          <audio></audio>
-          {/*<div className="player__thumbnail">*/}
-          {/*  <img src={AlbumCoverJpg} alt=""/>*/}
-          {/*</div>*/}
-          <div className="player__details">
-            <h2>Songname</h2>
-            <p>&#8212;</p>
-            <p>Artistname</p>
-          </div>
-          <div className="player__seekbar">
-            <input type="range"/>
-          </div>
-
-
-          <div className="controls">
+          <div className="player__item">
+            <audio></audio>
+            {/*<div className="player__thumbnail">*/}
+            {/*  <img src={AlbumCoverJpg} alt=""/>*/}
+            {/*</div>*/}
+            <div className="player__details">
+              <h2>Songname</h2>
+              <p>&#8212;</p>
+              <p>Artistname</p>
+            </div>
+            <div className="player__seekbar">
+              <input type="range"/>
+            </div>
+            {/*<div className="controls">*/}
             {/*<div className="prevControl">*/}
             {/*  <i className={classNames("fa faBackward")}></i>*/}
             {/*</div>*/}
@@ -38,8 +38,10 @@ const Pleer = () => {
             {/*<div className="nextControl">*/}
             {/*  <i className={classNames("fa faForward")}></i>*/}
             {/*</div>*/}
+            {/*</div>*/}
           </div>
 
+          <Button text="Текст песни"/>
         </div>
         <div className="player__list">
           <div className="player__toggleList">
@@ -73,7 +75,8 @@ const Pleer = () => {
           </div>
         </div>
       </div>
-      <Button text="Текст песни"/>
+
+
       <div className="checkbox">
         <input
           // onChange={(e) => changeCheckbox(e)}
