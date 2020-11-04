@@ -30,20 +30,10 @@ const Header = () => {
           />
         </div>
         <ul className={classNames('header__btn-spoiler')}>
-          <a className="header__link" href="#"></a>
-
-          <Button
-          text = 'Яндекс.Музыка ↗'
-          />
-          <Button
-          text = 'Spotify ↗'
-          />
-          <Button
-          text = 'Apple Music ↗'
-          />
-          <Button
-          text = 'VK Music ↗'
-          />
+          <a href="#" className="button">Яндекс.Музыка ↗</a>
+          <a href="#" className="button">Apple Music ↗</a>
+          <a href="#" className="button">VK Music ↗</a>
+          <a href="#" className="button">Spotify ↗</a>
         </ul>
       </div>
 
