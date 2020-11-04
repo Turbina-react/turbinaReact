@@ -2,6 +2,7 @@
   padding: 1px 10px 0 10px;
   background-color: black;
   width: 100%;
+  position: relative;
 
   @media screen and (max-width: 320px) {
     padding: 1px 5px 0 5px;
@@ -16,14 +17,7 @@
   margin-top: -10px;
   z-index: 2;
 
-<<<<<<< HEAD
-@media screen and (max-width: 1024px) {
-padding-top: 10px;
-}
-@media screen and (max-width: 320px) {
-padding-top: 20px;
-}
-=======
+
   @media screen and (max-width: 1024px) {
     padding-top: 10px;
   }
@@ -31,7 +25,6 @@ padding-top: 20px;
   @media screen and (max-width: 320px) {
     padding-top: 20px;
   }
->>>>>>> f918a0c2eba702a984a224496eb134e10249e4fa
 }
 
 .about__text {
