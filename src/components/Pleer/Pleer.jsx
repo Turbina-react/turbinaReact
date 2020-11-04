@@ -24,7 +24,7 @@ const Pleer = () => {
             {/*</div>*/}
             <div className="player__details">
               <h2>Songname</h2>
-              <p>&#8212;</p>
+              <p className="dash">&#8212;</p>
               <p>Artistname</p>
             </div>
             <div className="player__seekbar">
@@ -53,21 +53,21 @@ const Pleer = () => {
             <div className="player__listItem">
               <div className="player__details">
                 <h2>Songname</h2>
-                <p>&#8212;</p>
+                <p className="dash">&#8212;</p>
                 <p>Artistname</p>
               </div>
             </div>
             <div className="player__listItem">
               <div className="player__details">
                 <h2>Songname</h2>
-                <p>&#8212;</p>
+                <p className="dash">&#8212;</p>
                 <p>Artistname</p>
               </div>
             </div>
             <div className="player__listItem">
               <div className="player__details">
                 <h2>Songname</h2>
-                <p>&#8212;</p>
+                <p className="dash">&#8212;</p>
                 <p>Artistname</p>
               </div>
             </div>

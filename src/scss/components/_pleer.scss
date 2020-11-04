@@ -51,7 +51,9 @@
     //overflow: hidden;
   }
 }
-
+.dash {
+  padding: 0 10px;
+}
 .controls {
   cursor: pointer;
   padding: 5px;
@@ -76,6 +78,7 @@
     align-items: center;
     justify-content: center;
     border: 2px solid #E8E8E8;
+    background: #ffffff;
     border-radius: 50%;
     width: 20px;
     height: 20px;
