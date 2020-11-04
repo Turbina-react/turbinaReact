@@ -71,8 +71,8 @@
     h2, p {
       font-style: normal;
       font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 20px;
+      line-height: 24px;
       color: #FFFFFF;
       margin-top: 16px;
       text-overflow: ellipsis;
@@ -82,7 +82,7 @@
     }
   }
 
-  &__release {
+  &__typeContent {
     margin: 30px 0 0 0;
     font-style: italic;
     font-weight: normal;
@@ -90,12 +90,31 @@
     line-height: 24px;
     color: #FFFFFF;
   }
+  &__textSong {
+    h3{
+      margin-top: 10px;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 27px;
+      color: #fff;
+    }
+    p {
+      font-style: italic;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 27px;
+    }
+  }
+
 
   &__list {
     h2, p {
       font-style: italic;
+      color: #fff;
     }
   }
+
 }
 
 

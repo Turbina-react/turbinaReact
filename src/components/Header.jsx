@@ -30,6 +30,8 @@ const Header = () => {
           />
         </div>
         <ul className={classNames('header__btn-spoiler')}>
+          <a className="header__link" href="#"></a>
+
           <Button
           text = 'Яндекс.Музыка ↗'
           />

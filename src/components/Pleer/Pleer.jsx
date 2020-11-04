@@ -6,9 +6,12 @@ import arrowTopSvg from '../../assets/img/arrowTop.svg';
 import closeSvg from '../../assets/img/close.svg';
 import Button from "../Button";
 import {useState} from "react";
+import Realease from "./Release";
+import TextSong from "./TextSong";
 
 const Pleer = () => {
   const [visiblePlayer, setVisiblePlayer] = useState(true)
+  const [visibleRealease, setVisibleRealease] = useState(true)
 
   const openPlayer = () => setVisiblePlayer(visiblePlayer => !visiblePlayer)
 
@@ -38,35 +41,18 @@ const Pleer = () => {
           </div>
 
           {
-          visiblePlayer &&  <Button text="Текст песни"/>
+            visiblePlayer && <Button
+
+              text="Текст песни"/>
           }
         </div>
         {
-          visiblePlayer && <div className={classNames("player__list")}>
-            <p className="player__release">Релизы: </p>
+          visiblePlayer &&
+          <div className={classNames("player__list")}>
+            <p className="player__typeContent">Релизы: </p>
             <div className="list">
-
-              <div className="player__listItem">
-                <div className="player__details">
-                  <h2>Songname</h2>
-                  <p className="dash">&#8212;</p>
-                  <p className="player__artistName">Artistname Artistname Artistname</p>
-                </div>
-              </div>
-              <div className="player__listItem">
-                <div className="player__details">
-                  <h2>Songname</h2>
-                  <p className="dash">&#8212;</p>
-                  <p className="player__artistName">Artistname Artistname Artistname</p>
-                </div>
-              </div>
-              <div className="player__listItem">
-                <div className="player__details">
-                  <h2>Songname</h2>
-                  <p className="dash">&#8212;</p>
-                  <p className="player__artistName">Artistname Artistname Artistname</p>
-                </div>
-              </div>
+              <Realease/>
+              {/*<TextSong/>*/}
 
             </div>
           </div>
