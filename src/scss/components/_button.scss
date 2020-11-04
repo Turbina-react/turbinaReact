@@ -3,6 +3,7 @@
 // пример со стилями, его удалить и написать свой
 
 .button {
+  font-family: 'Inter', serif;
   display: inline-block;
   background-color: transparent;
   border: 2px $buttonTheme solid;

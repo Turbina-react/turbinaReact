@@ -1,6 +1,8 @@
 @import '../variables';
 
 .header {
+  font-family: 'Inter';
+  
   position: relative;
   display: flex;
   justify-content: center;
@@ -36,10 +38,19 @@
 }
 
 .header__btn-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+.header__btn-spoiler {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 320px) {
