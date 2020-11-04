@@ -1,6 +1,11 @@
 .about {
   padding: 1px 10px 0 10px;
   background-color: black;
+  width: 100%;
+
+  @media screen and (max-width: 320px) {
+    padding: 1px 5px 0 5px;
+  }
 }
 
 .about__wrapper {
@@ -8,6 +13,14 @@
   border-radius: 8px;
   padding-top: 20px;
   margin-top: -11px;
+  width: 100%;
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 10px;
+  }
+  @media screen and (max-width: 320px) {
+    padding-top: 20px;
+  }
 }
 
 .about__text {
@@ -16,6 +29,23 @@
   padding-top: 40px;
   margin: 0 auto 0 50px;
   max-width: 760px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 15px;
+    max-width: 680px;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 648px;
+  }
+
+  @media screen and (max-width: 320px) {
+    max-width: 270px;
+    padding-top: 30px;
+    margin: 0 auto 0 20px;
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 
 .about__header {
@@ -25,6 +55,23 @@
   font-style: italic;
   margin: 90px auto 0 50px;
 
+  @media screen and (max-width: 1024px) {
+    margin-top: 80px;
+    font-size: 46px;
+    line-height: 56px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 42px;
+    line-height: 51px;
+  }
+
+  @media screen and (max-width: 320px) {
+    font-size: 32px;
+    line-height: 38px;
+    margin: 60px auto 0 20px;
+    max-width: 270px;
+  }
 }
 
 .about__list-element {
