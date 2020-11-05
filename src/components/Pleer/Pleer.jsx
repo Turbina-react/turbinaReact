@@ -1,27 +1,28 @@
 import classNames from 'classnames';
 
 import AlbumCoverJpg from '../../assets/img/albumCover.jpg'
-import pauseSvg from '../../assets/img/pause1.svg';
-import arrowTopSvg from '../../assets/img/arrowTop.svg';
-import closeSvg from '../../assets/img/close.svg';
-import Button from "../Button";
+import {pauseSvg, playSvg, arrowTopSvg, closeSvg} from './index'
 import {useState} from "react";
-import Realease from "./Release";
-import TextSong from "./TextSong";
+import {Realease, TextSong, ButtonRealease} from './index'
 
 const Pleer = () => {
-  const [visiblePlayer, setVisiblePlayer] = useState(true)
-  const [visibleRealease, setVisibleRealease] = useState(true)
+  const [visiblePlayer, setVisiblePlayer] = useState(false)
+  const [visibleRealease, setVisibleRealease] = useState(false)
+  const [control, setControl] = useState(true)
 
   const openPlayer = () => setVisiblePlayer(visiblePlayer => !visiblePlayer)
+  const handleRealease = (stateVisible) => {setVisibleRealease(stateVisible)}
+  const handleControl = () => setControl(control => !control)
 
   return (
     <div className="player">
       <div className="controls">
-        <i className={classNames("fa faPlay")}></i>
-        <i className={classNames("fa faPause")}><img src={pauseSvg} alt=""/></i>
+        {/*<i className={classNames("fa faPlay")}></i>*/}
+        <i className={classNames("fa faPause")}><img
+          onClick={handleControl}
+          src={control ? pauseSvg : playSvg} alt="audio control"
+        /></i>
       </div>
-
 
       <div className="player__wrapper">
         <div className="player__main">
@@ -41,9 +42,10 @@ const Pleer = () => {
           </div>
 
           {
-            visiblePlayer && <Button
-
-              text="Текст песни"/>
+            visiblePlayer && <ButtonRealease
+              handleRealease={handleRealease}
+              text={!visibleRealease ? "Текст песни" : "Релизы"}
+            />
           }
         </div>
         {
@@ -51,16 +53,14 @@ const Pleer = () => {
           <div className={classNames("player__list")}>
             <p className="player__typeContent">Релизы: </p>
             <div className="list">
-              <Realease/>
-              {/*<TextSong/>*/}
+              {
+                !visibleRealease ? <Realease/> : <TextSong/>
+              }
 
             </div>
           </div>
         }
-
-
       </div>
-
 
       <img
         onClick={openPlayer}

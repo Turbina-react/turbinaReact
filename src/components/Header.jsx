@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react'
 
 import Pleer from "./Pleer/Pleer";
-import Button from '../components/Button';
+import ButtonStrim from './Buttons/ButtonStrim';
 
 import logoPng from '../assets/img/header_logo.png';
 import titlePng from '../assets/img/header_title.svg';
@@ -24,7 +24,7 @@ const Header = () => {
 
       <div className={classNames('header__btn-container')}>
         <div className={classNames('header__btn-checker')}>
-          <Button
+          <ButtonStrim
             text = 'Стриминги'
             outline
           />

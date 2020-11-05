@@ -13,6 +13,9 @@
   &__wrapper {
     width: 90%;
     margin: 0 10px;
+    @media screen and (max-width: 320px) {
+      margin: 0 5px;
+    }
   }
 
   &__main {
@@ -22,6 +25,8 @@
     }
 
     button {
+      min-width: 150px;
+      cursor: pointer;
       @media screen and (max-width: 550px) {
         width: 90%;
         display: block;
@@ -54,7 +59,7 @@
     flex: 1 1;
     margin-top: 0;
     text-overflow: ellipsis;
-    width: 100px;
+    width: 80px;
     overflow: hidden;
     height: 1.2em;
     white-space: nowrap;
@@ -72,7 +77,7 @@
       font-style: normal;
       font-weight: 500;
       font-size: 20px;
-      line-height: 24px;
+      line-height: 22px;
       color: #FFFFFF;
       margin-top: 16px;
       text-overflow: ellipsis;
@@ -109,15 +114,31 @@
 
 
   &__list {
+    max-height: 125px;
+    overflow-y: auto;
+    overflow-x: hidden;
     h2, p {
       font-style: italic;
       color: #fff;
     }
-  }
 
+  }
+  ::-webkit-scrollbar {
+    background-color: #ffffff21;
+  }
+  ::-webkit-scrollbar-thumb {
+    //background: #c3c4c230;
+    background: #ffffff47;
+    border-radius: 7px;
+  }
 }
 
 
+//::-webkit-scrollbar-thumb {
+//  //background: #c3c4c230;
+//  background: rgb(131, 8, 50);
+//  border-radius: 7px;
+//}
 
 .player__seekbar {
   input[type="range"] {
@@ -137,7 +158,9 @@
 .controls {
   cursor: pointer;
   margin: 16px auto 0 auto;
-
+  img{
+    min-width: 16px;
+  }
 }
 
 .openPopup {
