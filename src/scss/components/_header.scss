@@ -53,6 +53,9 @@
   justify-content: right;
   align-items: flex-end;
   flex-direction: column;
+  @media screen and (max-width: 520px) {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -68,9 +71,7 @@
   .header__btn-checker {
     display: block;
   }
-  .header__btn-spoiler {
-    display: none;
-  }
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -80,7 +81,6 @@
 }
 
 @media screen and (min-width: 520px) {
-
   .header__btn-checker {
     display: none;
   }
