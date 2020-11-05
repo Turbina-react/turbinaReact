@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import React, {useEffect, useRef, useState} from 'react'
+import {use100vh} from 'react-div-100vh'
+
 
 import Pleer from "./Pleer/Pleer";
 import ButtonStrim from './Buttons/ButtonStrim';
@@ -12,7 +14,7 @@ const Header = () => {
   const handleRealease = (setvisible) => {
     setResizeSpoiler(resizeSpoiler => !resizeSpoiler)
   }
-
+// console.log(use100vh())
   useEffect(() => {
     const updateView = () => {
       setResizeSpoiler(window.matchMedia("(min-width: 520px)").matches);
@@ -22,10 +24,17 @@ const Header = () => {
     return () => window.removeEventListener('resize', updateView);
   }, []);
 
+  const MyHalfHeightExampleComponent = () => {
+    const height = use100vh()
+    const halfHeight = height ? height / 1 : '100vh'
+    return halfHeight
+  }
+  const a = MyHalfHeightExampleComponent()
+  console.log(a)
   return (
-    <div className={classNames('header')}>
-
-      {/*<img src={titlePng} alt=""/>*/}
+    <div className={classNames('header')}
+         style={{height: a}}
+    >
 
       <Pleer/>
       <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
