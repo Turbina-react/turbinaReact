@@ -8,7 +8,7 @@ const AboutForm = () => {
       <p className="form__text">Заполняя эту форму, вы становитесь частью проекта.</p>
       <fieldset className="form__fieldset">
         <div className="form__field">
-          <input className="form__input" type="text" name="name" pattern="[А-Я][а-яё]+(-[А-Я][а-яё]+)?" placeholder="Имя и фамилия автора" minlength="2" maxlength="40" required />
+          <input className="form__input" type="text" name="name" pattern="^[А-ЯA-Z][а-яa-zА-ЯA-Z\-]{0,}\s[А-ЯA-Z][а-яa-zА-ЯA-Z\-]{1,}?$" placeholder="Имя и фамилия автора" minlength="2" maxlength="40" required />
           <span className="form__error">Имя и фамилия автора в формате:</span>
         </div>
         <div className="form__field">
