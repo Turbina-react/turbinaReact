@@ -33,10 +33,7 @@ const About = () => {
             в ней.</li>
             <li className="about__list-element">Дети получают невероятное удовольствие и мотивацию от того, что их творчество востребовано сверстниками и взрослыми.</li>
           </ul>
-        </p>
-        <h2 className="about__header">ФОРМА</h2>
-        <p className="about__text">Заполняя эту форму, вы становитесь частью проекта.
-        </p>
+        </p>  
         <AboutForm />
       </div>
     </section>
