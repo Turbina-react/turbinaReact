@@ -6,6 +6,7 @@
 }
 .button {
   display: inline-block;
+  cursor: pointer;
   white-space: pre;
   background-color: transparent;
   border: 2px $buttonTheme solid;

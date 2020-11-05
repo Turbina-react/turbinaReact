@@ -17,7 +17,6 @@ const Pleer = () => {
   return (
     <div className="player">
       <div className="controls">
-        {/*<i className={classNames("fa faPlay")}></i>*/}
         <i className={classNames("fa faPause")}><img
           onClick={handleControl}
           src={control ? pauseSvg : playSvg} alt="audio control"
