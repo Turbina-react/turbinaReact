@@ -7,17 +7,12 @@ import logoPng from '../assets/img/header_logo.png';
 import titlePng from '../assets/img/header_title.svg';
 
 const Header = () => {
-  const [visiblePopup, setVisiblePopup] = useState(false);
-  // const [screenChange, setScreenChange] = useState(window.matchMedia("(min-width: 520px)").matches)
   const [resizeSpoiler, setResizeSpoiler] = useState(true)
 
   const handleRealease = (setvisible) => {
-    console.log(setvisible)
-
-    // setVisiblePopup(setvisible)
     setResizeSpoiler(resizeSpoiler => !resizeSpoiler)
   }
-  // console.log(visiblePopup)
+
   useEffect(() => {
     const updateView = () => {
       setResizeSpoiler(window.matchMedia("(min-width: 520px)").matches);
@@ -26,15 +21,13 @@ const Header = () => {
     updateView();
     return () => window.removeEventListener('resize', updateView);
   }, []);
-  // console.log(resizeSpoiler)
-  // console.log(!visiblePopup)
+
   return (
     <div className={classNames('header')}>
 
       {/*<img src={titlePng} alt=""/>*/}
 
       <Pleer/>
-
       <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
       <h1 className={classNames('header__title')}>
         <img className={classNames('header__title-img')} src={titlePng} alt=""/>

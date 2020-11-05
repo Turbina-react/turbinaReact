@@ -5,7 +5,6 @@ import closeStrimSvg from '../../assets/img/closeSt.svg';
 const ButtonStrim = ({text, handleRealease}) => {
   const [visiblePopup, setVisiblePopup] = useState(true);
 
-
   useEffect(() => {
     handleRealease(visiblePopup)
   }, [visiblePopup])
