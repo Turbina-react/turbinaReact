@@ -61,7 +61,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+  @media screen and (max-width: 520px) {
   .header__logo {
     width: 24px;
   }
@@ -73,7 +73,14 @@
   }
 }
 
-@media screen and (min-width: 321px) {
+@media screen and (max-width: 1024px) {
+  .header__logo {
+    width: 40px;
+  }
+}
+
+@media screen and (min-width: 520px) {
+
   .header__btn-checker {
     display: none;
   }

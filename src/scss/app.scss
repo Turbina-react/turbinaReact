@@ -9,6 +9,10 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
 .background {
   background-image: url('../assets/img/header_background.png');
   position: fixed;
