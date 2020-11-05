@@ -17,9 +17,11 @@
   margin: 8px;
   color: $buttonTheme;
   padding: 8px 20px;
+  transform: opacity 0.4s;
 
   &:hover {
     background-color: transparent;
+    opacity: 0.8;
   }
 
   &:active {
