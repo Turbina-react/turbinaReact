@@ -71,10 +71,10 @@
 }
 .form__field{
     margin-top: 10px;
-    height: 60px;
     display: flex;
     flex-direction: column;
 }
+
 .form__error{
     display: none;
     color: #FF0000;
@@ -83,6 +83,8 @@
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
+    margin-top: 6px;
+    animation: errors .1s ease-in-out;
 
     @media screen and (max-width: 768px) {
         font-size: 15px;
@@ -103,6 +105,7 @@
     height: 100%;
     border: none;
     border-bottom: 2px #000000 solid;
+    padding: 20px 0;
 
     @media screen and (max-width: 320px) {
         font-size: 14px;
@@ -149,7 +152,8 @@
     line-height: 22px;
     display: flex;
     align-items: center;
-    cursor:pointer;   
+    cursor:pointer;
+    width: fit-content;   
 
     @media screen and (max-width: 1024px) {
         font-size: 15px;
@@ -214,4 +218,17 @@
 
 .check__input:checked:disabled + .check__box {
     background-color: #9B9B9B;
+}
+
+.form__input:valid:not(:placeholder-shown) {
+	border-color: #000000;
+}
+
+.form__input:invalid:not(:placeholder-shown) {
+    border-color: #FF0000;
+    color: #FF0000;
+}
+
+.form__input:invalid:not(:placeholder-shown) + .form__error {
+	display: block;
 }
