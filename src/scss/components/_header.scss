@@ -1,15 +1,11 @@
 @import '../variables';
 
 .header {
-  font-family: 'Inter';
-  
   position: relative;
   display: flex;
   justify-content: center;
   align-content: center;
-  background-image: url('../../assets/img/header_background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: transparent;
   width: 100%;
   height: 100vh;
 }
@@ -19,6 +15,12 @@
   position: absolute;
   top: 20px;
   left: 20px;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+.header__logo {
+  opacity: 0.8;
 }
 
 .header__title {
@@ -53,22 +55,21 @@
   flex-direction: column;
 }
 
+@media screen and (max-width: 1024px) {
+  .header__logo {
+    width: 40px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .header__logo {
     width: 24px;
   }
-
   .header__btn-checker {
     display: block;
   }
   .header__btn-spoiler {
     display: none;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .header__logo {
-    width: 40px;
   }
 }
 
