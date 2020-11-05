@@ -12,7 +12,9 @@ const Header = () => {
   const [resizeSpoiler, setResizeSpoiler] = useState(true)
 
   const handleRealease = (setvisible) => {
-    setVisiblePopup(setvisible)
+    console.log(setvisible)
+
+    // setVisiblePopup(setvisible)
     setResizeSpoiler(resizeSpoiler => !resizeSpoiler)
   }
   // console.log(visiblePopup)
@@ -24,8 +26,8 @@ const Header = () => {
     updateView();
     return () => window.removeEventListener('resize', updateView);
   }, []);
-  console.log(resizeSpoiler)
-  console.log(!visiblePopup)
+  // console.log(resizeSpoiler)
+  // console.log(!visiblePopup)
   return (
     <div className={classNames('header')}>
 
@@ -55,8 +57,6 @@ const Header = () => {
           <a href="#" className="button">VK Music ↗</a>
           <a href="#" className="button">Spotify ↗</a>
         </ul>
-
-
 
       </div>
 

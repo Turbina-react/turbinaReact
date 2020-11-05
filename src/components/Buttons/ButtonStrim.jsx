@@ -4,23 +4,15 @@ import closeStrimSvg from '../../assets/img/closeSt.svg';
 
 const ButtonStrim = ({text, handleRealease}) => {
   const [visiblePopup, setVisiblePopup] = useState(true);
-  const [resizeSpoiler, setResizeSpoiler] = useState(true)
+
 
   useEffect(() => {
     handleRealease(visiblePopup)
   }, [visiblePopup])
-  const onTogglePopup = () =>{
+
+  const onTogglePopup = () => {
     setVisiblePopup(visiblePopup => !visiblePopup)
   }
-  // console.log(visiblePopup)
-  useEffect(() => {
-    const updateView = () => {
-      setResizeSpoiler(window.matchMedia("(min-width: 520px)").matches);
-    };
-    window.addEventListener('resize', updateView);
-    updateView();
-    return () => window.removeEventListener('resize', updateView);
-  }, []);
 
   return (
     <div onClick={onTogglePopup} className="buttonWrapper">
@@ -33,8 +25,8 @@ const ButtonStrim = ({text, handleRealease}) => {
               <line x1="4.9034" y1="4.90373" x2="14.0958" y2="14.0961" stroke="white" strokeWidth="2"/>
               <line x1="4.90422" y1="14.0961" x2="14.0966" y2="4.90373" stroke="white" strokeWidth="2"/>
             </svg>
-
-          )}
+          )
+        }
       </button>
     </div>
   )
