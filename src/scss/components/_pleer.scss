@@ -83,6 +83,8 @@
       color: #FFFFFF;
       margin-top: 16px;
       text-overflow: ellipsis;
+      -webkit-user-select: none;
+      user-select: none;
       @media screen and (max-width: 550px) {
         font-size: 14px;
       }
@@ -173,6 +175,9 @@
     h2, p {
       font-style: italic;
       color: #fff;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
   }
