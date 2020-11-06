@@ -50,7 +50,7 @@ const Pleer = () => {
         {
           visiblePlayer &&
           <div className={classNames("player__list")}>
-            <p className="player__typeContent">Релизы: </p>
+            <h3 className="player__typeContent">Релизы: </h3>
             <div className="list">
               {
                 !visibleRealease ? <Realease/> : <TextSong/>
