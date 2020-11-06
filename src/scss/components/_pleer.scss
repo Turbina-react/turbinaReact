@@ -20,7 +20,7 @@
   &__main {
     display: flex;
     margin-bottom: 15px;
-      @media screen and (max-width: 550px) {
+    @media screen and (max-width: 550px) {
       display: block;
     }
 
@@ -55,6 +55,7 @@
     display: flex;
     flex: 1 1;
   }
+
   &__artistName {
     flex: 1 1;
     margin-top: 0;
@@ -70,6 +71,7 @@
     -ms-user-select: none;
     user-select: none;
   }
+
   &__details {
     display: flex;
 
@@ -95,8 +97,9 @@
     line-height: 24px;
     color: #FFFFFF;
   }
+
   &__textSong {
-    h3{
+    h3 {
       margin-top: 10px;
       font-style: italic;
       font-weight: 500;
@@ -104,6 +107,7 @@
       line-height: 27px;
       color: #fff;
     }
+
     p {
       font-style: italic;
       font-weight: 500;
@@ -112,21 +116,71 @@
     }
   }
 
+  .player__seekbar {
+    input[type='range'] {
+      overflow: hidden;
+      width: 100%;
+      -webkit-appearance: none;
+      background-color: #ffffff1c;
+      cursor: pointer;
+
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 4px;
+      -webkit-appearance: none;
+      color: #13bba4;
+      margin-top: -1px;
+
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+      width: 5px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: pointer;
+      background: #ffffff;
+      box-shadow: -100vh 0 0 100vh #ffffff;
+    }
+
+    input[type="range"]::-moz-range-progress {
+      background-color: #43e5f7;
+      padding: 5px 0;
+      box-sizing: border-box;
+    }
+
+    //input[type="range"]::-moz-range-track {
+    //  background-color: #9a905d;
+    //}
+
+    //input[type="range"]::-ms-fill-lower {
+    //  background-color: #43e5f7;
+    //}
+
+    //input[type="range"]::-ms-fill-upper {
+    //  background-color: #9a905d;
+    //}
+
+  }
+
 
   &__list {
     max-height: 115px;
     margin-top: 5px;
     overflow-y: auto;
     overflow-x: hidden;
+
     h2, p {
       font-style: italic;
       color: #fff;
     }
 
   }
+
   ::-webkit-scrollbar {
     background-color: #ffffff21;
   }
+
   ::-webkit-scrollbar-thumb {
     //background: #c3c4c230;
     background: #ffffff47;
@@ -135,17 +189,6 @@
 }
 
 
-.player__seekbar {
-  input[type="range"] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 2px;
-    outline: none;
-    background: #fff;
-    //overflow: hidden;
-  }
-}
-
 .dash {
   padding: 0 10px;
 }
@@ -153,7 +196,8 @@
 .controls {
   cursor: pointer;
   margin: 16px auto 0 auto;
-  img{
+
+  img {
     min-width: 16px;
   }
 }
@@ -168,3 +212,4 @@
     height: 16px;
   }
 }
+
