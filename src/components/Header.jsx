@@ -29,11 +29,12 @@ const Header = () => {
     const halfHeight = height ? height / 1 : '100vh'
     return halfHeight
   }
-  const a = MyHalfHeightExampleComponent()
-  console.log(a)
+
   return (
     <div className={classNames('header')}
-         style={{height: a}}
+         style={
+           {height: MyHalfHeightExampleComponent()} // height screen
+         }
     >
 
       <Pleer/>

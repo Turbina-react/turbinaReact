@@ -20,6 +20,7 @@
   &__main {
     display: flex;
     margin-bottom: 15px;
+    transition: all 500ms ease-in-out;
     @media screen and (max-width: 550px) {
       display: block;
     }
@@ -74,6 +75,7 @@
 
   &__details {
     display: flex;
+    margin-top: 16px;
 
     h2, p {
       font-style: normal;
@@ -81,7 +83,6 @@
       font-size: 20px;
       line-height: 22px;
       color: #FFFFFF;
-      margin-top: 16px;
       text-overflow: ellipsis;
       -webkit-user-select: none;
       user-select: none;
@@ -171,6 +172,7 @@
     margin-top: 5px;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: all 5s ease-in-out;
 
     h2, p {
       font-style: italic;
