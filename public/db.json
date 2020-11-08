@@ -26,10 +26,19 @@
       "artistname": "Dabro"
     }
   ],
-  "form": {
-    "NameLastname": "",
-    "phone": "",
-    "email": "",
-    "poems": ""
-  }
+
+  "form": [
+    {
+      "NameLastname": "",
+      "phone": "",
+      "email": "",
+      "poems": ""
+    },
+    {
+      "NameLastname": "Вася",
+      "phone": "+7999999",
+      "email": "ывы@ава",
+      "poems": "вавав"
+    }
+  ]
 }

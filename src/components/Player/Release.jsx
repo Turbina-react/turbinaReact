@@ -13,11 +13,11 @@ const Realease = ({artistname, songname, audio, onClickAddBurger}) => {
 
   return (
     <div>
-      <div onClick={onnAddSong} className="player__listItem">
+      <div onClick={onnAddSong} className="player__list-item">
         <div className="player__details">
-          <h2>{artistname}</h2>
-          <p className="dash">&#8212;</p>
-          <p className="player__artistName">{songname}</p>
+          <p className="player__text">{artistname}</p>
+          <p className="player__dash">&#8212;</p>
+          <p className={classNames("player__text player__text_hide")}>{songname}</p>
         </div>
       </div>
     </div>
