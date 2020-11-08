@@ -62,7 +62,7 @@ const Pleer = () => {
     setControl(activeControl)
     urlPause ? audio.current.play() : audio.current.pause()
     audio.current.volume = 0.1
-    console.log(audio.current.src, parseInt(audio.current.duration))
+    // console.log(audio.current.src, parseInt(audio.current.duration))
   }
 
   useEffect(() => {
