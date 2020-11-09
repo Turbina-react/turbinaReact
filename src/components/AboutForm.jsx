@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const AboutForm = () => {
   return (
-    <form className="form" name="register" action="http://turbina.ru/post" method="POST">
+    <form className="form" name="register">
       <h2 className="form__header">ФОРМА.</h2>
       <p className="form__text">Заполняя эту форму, вы становитесь частью проекта.</p>
       <fieldset className="form__fieldset">
@@ -21,15 +21,15 @@ const AboutForm = () => {
           <span className="form__error">Почта в формате: students-yandex@yandex.ru</span>
         </div>
         <div className="form__field">
-          <textarea className={classNames("form__input form__textarea")} type="text" name="comment" cols="40" rows="1" overflow="visible" pattern=""  placeholder="Стихи" minlength="2" required/>
+          <textarea className={classNames("form__input", "form__textarea")} type="text" name="comment" cols="40" rows="1" overflow="visible" pattern=""  placeholder="Стихи" minlength="2" required/>
           <span className="form__error">Ваши стихи</span>
         </div>
-        <div className={classNames("form__field form__field_checkbox")}>
+        <div className={classNames("form__field", "form__field_checkbox")}>
           <label className="form__label-checkbox">
-            <input className={classNames("check__input form__checkbox")} type="checkbox" name="checkbox" required/>
+            <input className={classNames("check__input", "form__checkbox")} type="checkbox" name="checkbox" required/>
             <span className="check__box"></span>
               Согласен с &#160;
-            <a href="#" className="form__checkbox-link">офертой</a>
+            <a href="#" target="_blank" className="form__checkbox-link">офертой</a>
           </label>
           <span className="form__error">Необходимо согласиться</span>
         </div>  
