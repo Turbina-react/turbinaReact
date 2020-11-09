@@ -1,16 +1,21 @@
 .player {
+  max-width: 1280px;
+  margin-bottom: 10px;
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   bottom: 0;
-  left: 0;
-  margin-bottom: 10px;
-  padding: 0 10px;
-
+  left: auto;
+  right: auto;
+  padding: 0 20px;
+  @media screen and (max-width: 450px) {
+    padding: 0 10px;
+  }
   &__wrapper {
-    width: 90%;
+    max-width: 1280px;
+    width: 1150px;
     margin: 0 10px;
     @media screen and (max-width: 320px) {
       margin: 0 5px;
@@ -23,16 +28,6 @@
     @media screen and (max-width: 550px) {
       display: block;
     }
-
-    button {
-      min-width: 150px;
-      cursor: pointer;
-      @media screen and (max-width: 550px) {
-        width: 90%;
-        display: block;
-        margin: 20px auto 0 auto;
-      }
-    }
   }
 
   &__item {
@@ -44,55 +39,95 @@
   }
 
   &__time {
-    margin-left: 10px;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-  }
-
-  &__artist {
-    display: flex;
-    flex: 1 1;
-  }
-
-  &__artistName {
-    flex: 1 1;
-    margin-top: 0;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    color: #fff;
+    margin-left: 10px;
     text-overflow: ellipsis;
-    width: 80px;
-    overflow: hidden;
-    height: 1.2em;
-    white-space: nowrap;
     overflow-wrap: break-word;
     outline-style: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
-  }
-
-  &__details {
-    display: flex;
-
-    h2, p {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 20px;
+    @media screen and (max-width: 1030px) {
+      font-size: 18px;
       line-height: 22px;
-      color: #FFFFFF;
-      margin-top: 16px;
-      text-overflow: ellipsis;
-      -webkit-user-select: none;
-      user-select: none;
-      @media screen and (max-width: 550px) {
-        font-size: 14px;
-      }
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 14px;
+      line-height: 19px;
     }
   }
 
+  &__artist-block {
+    display: flex;
+    flex: 1 1;
+  }
+
+  &__text {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: #fff;
+    margin-top: 0;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    outline-style: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    @media screen and (max-width: 550px) {
+      font-size: 14px;
+    }
+
+    &_hide {
+      flex: 1 1;
+      margin-top: 0;
+      text-overflow: ellipsis;
+      width: 80px;
+      max-width: 60%;
+      overflow: hidden;
+      height: 1.2em;
+      white-space: nowrap;
+      overflow-wrap: break-word;
+      outline-style: none;
+    }
+
+    &_song {
+      font-style: italic;
+      white-space: pre-line;
+      font-weight: 400;
+      line-height: 27px;
+      margin-top: 10px;
+    }
+  }
+
+
+  &__details {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  &__dash {
+    padding: 0 10px;
+    color: #fff;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    outline-style: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+
+  }
+
   &__typeContent {
-    margin: 30px 0 0 0;
     font-style: italic;
     font-weight: normal;
     font-size: 20px;
@@ -100,25 +135,11 @@
     color: #FFFFFF;
   }
 
-  &__textSong {
-    h3 {
-      margin-top: 10px;
-      font-style: italic;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 27px;
-      color: #fff;
-    }
+  &__text-song {
 
-    p {
-      font-style: italic;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 27px;
-    }
   }
 
-  .player__seekbar {
+  &__seekbar {
     input[type='range'] {
       overflow: hidden;
       width: 100%;
@@ -168,17 +189,10 @@
 
   &__list {
     max-height: 115px;
-    margin-top: 5px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     overflow-y: auto;
     overflow-x: hidden;
-
-    h2, p {
-      font-style: italic;
-      color: #fff;
-      cursor: pointer;
-      -webkit-user-select: none;
-      user-select: none;
-    }
 
   }
 
@@ -194,20 +208,13 @@
 }
 
 
-.dash {
-  padding: 0 10px;
-}
-
 .controls {
   cursor: pointer;
   margin: 16px auto 0 auto;
 
-  img {
-    min-width: 16px;
-  }
 }
 
-.openPopup {
+.open-popup {
   cursor: pointer;
   margin: 16px auto 0 auto;
   width: 24px;

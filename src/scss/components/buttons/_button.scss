@@ -1,6 +1,8 @@
-@import '../variables.scss';
+@import '../../variables.scss';
+@import "./btnOpenClose";
+@import "./btnPlayPause";
 
-// пример со стилями, его удалить и написать свой
+
 .buttonWrapper{
   margin: 0 auto;
 }
@@ -17,7 +19,6 @@
   margin: 8px;
   color: $buttonTheme;
   padding: 8px 20px;
-  transform: opacity 0.4s;
 
   &:hover {
     background-color: transparent;
@@ -26,6 +27,16 @@
 
   &:active {
     transform: translateY(1px);
+  }
+
+  &_realease {
+    min-width: 150px;
+    cursor: pointer;
+    @media screen and (max-width: 550px) {
+      width: 90%;
+      display: block;
+      margin: 20px auto 0 auto;
+    }
   }
 
   @media screen and (max-width: 520px) {
