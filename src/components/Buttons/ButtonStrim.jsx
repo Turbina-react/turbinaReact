@@ -16,7 +16,7 @@ const ButtonStrim = ({text, handleRealease}) => {
   return (
     <div onClick={onTogglePopup} className="buttonWrapper">
       <button
-        className="button"
+        className={classNames('button')}
       >
         {visiblePopup ? text
           : (
