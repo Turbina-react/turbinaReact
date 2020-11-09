@@ -9,7 +9,7 @@ import {activeSong, activeTime} from "../../redux/actions/active";
 
 const Player = () => {
   // http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3
-  const [visibleList, setVisibleList] = useState(true)
+  const [visibleList, setVisibleList] = useState(false)
   const [visibleRealease, setVisibleRealease] = useState(false)
   const [control, setControl] = useState(false)
   const audio = useRef()
