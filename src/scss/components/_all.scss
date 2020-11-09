@@ -1,9 +1,8 @@
-@import './header';
-@import './player';
-@import 'buttons/buttons';
+@import "./header";
+@import "./player";
+@import "./buttons/buttons";
 @import "./about";
 @import "./footer";
 @import "./aboutform";
-
 
 // сюда импортим все стили компонентов, далее этот файл подключен к app.scss

@@ -2,11 +2,13 @@
 @import './variables';
 @import './libs/normalize';
 
+
+
 @import './components/all';
 
 body {
   background-color: $background;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 ::-webkit-scrollbar {

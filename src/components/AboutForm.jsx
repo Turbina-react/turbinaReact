@@ -37,6 +37,7 @@ const AboutForm = () => {
   };
   return (
     <form className="form" name="register" onSubmit={handleSubmit}>
+   
       <h2 className="form__header">ФОРМА.</h2>
       <p className="form__text">Заполняя эту форму, вы становитесь частью проекта.</p>
       <fieldset className="form__fieldset">
@@ -62,7 +63,7 @@ const AboutForm = () => {
             <input className={classNames("check__input", "form__checkbox")} type="checkbox" name="checkbox" required onChange={inputsHandler} />
             <span className="check__box"></span>
               Согласен с &#160;
-            <a href="#" className="form__checkbox-link">офертой</a>
+            <a href="#" target="_blank" className="form__checkbox-link">офертой</a>
           </label>
           <span className="form__error">Необходимо согласиться</span>
         </div>  
