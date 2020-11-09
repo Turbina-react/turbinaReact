@@ -1,32 +1,41 @@
-
 {
   "songList": [
     {
-      "id" : 1,
+      "id": 1,
       "audio": "http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3",
       "songname": "In the end",
-      "artistname": "Fleurie"
+      "artistname": "Fleurie",
+      "text": "I tried so hard and got so far\n But in the end, it doesn't even matter\n I had to fall to lose it all\n But in the end, it doesn't even matter"
     },
     {
-      "id" : 2,
+      "id": 2,
       "audio": "http://file-st10.karelia.ru/2k686r/50a03c05f90388e9e4e4f31308e5b3aa/5f9d293d62e115a7221edf9bf97b59b6/gubka_bob_2020.mp3",
       "songname": "Krabby Step",
-      "artistname": "Swae Lee"
+      "artistname": "Swae Lee",
+      "text": "To the left, to the left, to the left (Yay!)\nTo the right, to the right, you’re the best (Yay!)\nStand up, stand up, hands up (Yay!)\nYou’re the best, you’re the best, never give up (Yay!)"
     },
     {
-      "id" : 3,
+      "id": 3,
       "audio": "http://file-st10.karelia.ru/r8k4t3/cfa1684e1c4105504f4d02b0d73763aa/13c03ae2502360d0866b7d1451f7c0a5/inside_her_new_balenciaga.mp3",
       "songname": "Inside her new Balenciaga",
-      "artistname": "FILV"
+      "artistname": "FILV",
+      "text": "Cigarettes and tiny liquor bottles\nJust what you'd expect\nInside her new Balenciaga's\nCigarettes and tiny liquor bottles\nJust what you'd expect\nInside her new Balenciaga's\nCigarettes and tiny liquor bottles\nJust what you'd expect\nInside her new Balenciaga's\n"
     },
     {
-      "id" : 4,
+      "id": 4,
       "audio": "http://file-st10.karelia.ru/79s6sd/6fe9f001f84c3128d5e67d0ad29eafaa/6d9b8ebea66a80f5428e62f78d2feb3b/zvuk_postavim_na_vsu_i_sosedi_ne_spat.mp3",
       "songname": "Звук поставим на всю",
-      "artistname": "Dabro"
+      "artistname": "Dabro",
+      "text": "Звук поставим на всю и соседи не спят\nКто под нами внизу, вы простите меня\nА потом о любви говорить до утра\nЭто юность моя, это юность моя\n Ветер ласкает глаза, солнце уходит в закат\nКто был со мной до конца, с теми ни шагу назад\nИ вот мы стали сильней, но накрывает тоска\nЯ соберу всех друзей и тогда..."
+    },
+    {
+      "id": 5,
+      "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/KYGO-CHELSEA%20CUTLER%20-%20Not%20Ok.mp3",
+      "songname": "Cutler",
+      "artistname": "Kygo chelsea",
+      "text": "Seven months, two weeks and seven days\nSince I left, who's counting anyway?\nBut for me the only thing that's changed\nIs the distance between New York and LA\nSeven months, two weeks and seven days\nSince I was so easily replaced\nIt's so strange how I recognize her face\nBut tell me, does she make you feel the same?\nKills me to know she's sleeping in my place\nIt's midnight and I'm wasted\nSo wasted, I'm wasted\nI can't believe I'm calling you up again\nI know I might be crazy\nSo crazy, I'm crazy\nI can't believe I'm calling you just to say\nI'm not okay\nI just called you to say, ooh\nI'm not okay, oh\nI just called you to say, ooh\nI'm not okay\nI'm not okay\nAnother day with whiskey and cheap wine\nBut it don't stop this dream back in my mind\nMy friends all say that all will…"
     }
   ],
-
   "form": [
     {
       "NameLastname": "",

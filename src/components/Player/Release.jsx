@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 
-const Realease = ({artistname, songname, audio, onClickAddBurger}) => {
+const Realease = ({artistname, songname, audio, text, onClickAddBurger}) => {
 
   const onnAddSong = () => {
     const obj = {
       audio,
       songname,
-      artistname
+      artistname,
+      text
     }
     onClickAddBurger(obj)
   }
