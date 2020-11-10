@@ -52,21 +52,22 @@ const Player = () => {
     }
   }());
 
-  function throttle (callback, limit) {
-    var waiting = false;                      // Initially, we're not waiting
-    return function () {                      // We return a throttled function
-      if (!waiting) {                       // If we're not waiting
-        callback.apply(this, arguments);  // Execute users function
-        waiting = true;                   // Prevent future invocations
-        setTimeout(function () {          // After a period of time
-          waiting = false;              // And allow future invocations
-        }, limit);
-      }
-    }
-  }
-  const delayedQuery = throttle(function (second) {
-    console.log({ second: new Date(second.timeStamp) })
-  }, 1000)
+  // function throttle (callback, limit) {   // будущий таймер на трек, еще не настроен и не работает
+  //   var waiting = false;                      // Initially, we're not waiting
+  //   return function () {                      // We return a throttled function
+  //     if (!waiting) {                       // If we're not waiting
+  //       callback.apply(this, arguments);  // Execute users function
+  //       waiting = true;                   // Prevent future invocations
+  //       setTimeout(function () {          // After a period of time
+  //         waiting = false;              // And allow future invocations
+  //       }, limit);
+  //     }
+  //   }
+  // }
+  // const delayedQuery = throttle(function (second) {   // будущий таймер на трек, еще не настроен и не работает
+  //   console.log({ second: new Date(second.timeStamp) })
+  // }, 1000)
+
   useEffect(() => {
     handleControl()
 
