@@ -2,31 +2,24 @@
   "songList": [
     {
       "id": 1,
-      "audio": "http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3",
-      "songname": "In the end",
-      "artistname": "Fleurie",
+      "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/KERMESSE%20-%20Bleepio.mp3",
+      "songname": "Bleepio",
+      "artistname": "KERMESSE",
       "text": "I tried so hard and got so far\n But in the end, it doesn't even matter\n I had to fall to lose it all\n But in the end, it doesn't even matter"
     },
     {
       "id": 2,
-      "audio": "http://file-st10.karelia.ru/2k686r/50a03c05f90388e9e4e4f31308e5b3aa/5f9d293d62e115a7221edf9bf97b59b6/gubka_bob_2020.mp3",
-      "songname": "Krabby Step",
-      "artistname": "Swae Lee",
+      "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/MAROON%205%20-%20Memories%20(Dj%20Dark,%20Mentol%20rmx).mp3",
+      "songname": "Memories",
+      "artistname": "MAROON",
       "text": "To the left, to the left, to the left (Yay!)\nTo the right, to the right, you’re the best (Yay!)\nStand up, stand up, hands up (Yay!)\nYou’re the best, you’re the best, never give up (Yay!)"
     },
     {
       "id": 3,
-      "audio": "http://file-st10.karelia.ru/r8k4t3/cfa1684e1c4105504f4d02b0d73763aa/13c03ae2502360d0866b7d1451f7c0a5/inside_her_new_balenciaga.mp3",
-      "songname": "Inside her new Balenciaga",
-      "artistname": "FILV",
+      "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/ALMAD%20-%20Beach.mp3",
+      "songname": "Beach",
+      "artistname": "Almad",
       "text": "Cigarettes and tiny liquor bottles\nJust what you'd expect\nInside her new Balenciaga's\nCigarettes and tiny liquor bottles\nJust what you'd expect\nInside her new Balenciaga's\nCigarettes and tiny liquor bottles\nJust what you'd expect\nInside her new Balenciaga's\n"
-    },
-    {
-      "id": 4,
-      "audio": "http://file-st10.karelia.ru/79s6sd/6fe9f001f84c3128d5e67d0ad29eafaa/6d9b8ebea66a80f5428e62f78d2feb3b/zvuk_postavim_na_vsu_i_sosedi_ne_spat.mp3",
-      "songname": "Звук поставим на всю",
-      "artistname": "Dabro",
-      "text": "Звук поставим на всю и соседи не спят\nКто под нами внизу, вы простите меня\nА потом о любви говорить до утра\nЭто юность моя, это юность моя\n Ветер ласкает глаза, солнце уходит в закат\nКто был со мной до конца, с теми ни шагу назад\nИ вот мы стали сильней, но накрывает тоска\nЯ соберу всех друзей и тогда..."
     },
     {
       "id": 5,
