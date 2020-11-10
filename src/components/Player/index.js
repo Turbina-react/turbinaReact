@@ -1,4 +1,6 @@
 //components for Player.jsx
+import Details from "./Details";
+import Seekbar from "./Seekbar";
 import Realease from "./Release";
 import TextSong from "./TextSong";
 import ButtonRealease from "../Buttons/ButtonRealease";
@@ -11,6 +13,8 @@ import BtnArrow from "../Buttons/BtnArrow";
 import BtnClose from "../Buttons/BtnClose";
 
 export {
+  Details,
+  Seekbar,
   Realease,
   TextSong,
   ButtonRealease,
