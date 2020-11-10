@@ -13,6 +13,7 @@
   @media screen and (max-width: 450px) {
     padding: 0 10px;
   }
+
   &__wrapper {
     max-width: 1280px;
     width: 1150px;
@@ -140,51 +141,73 @@
   }
 
   &__seekbar {
-    input[type='range'] {
-      overflow: hidden;
-      width: 100%;
-      -webkit-appearance: none;
-      background-color: #ffffff1c;
-      cursor: pointer;
-
-    }
-
-    input[type='range']::-webkit-slider-runnable-track {
-      height: 4px;
-      -webkit-appearance: none;
-      color: #13bba4;
-      margin-top: -1px;
-
-    }
-
-    input[type='range']::-webkit-slider-thumb {
-      width: 5px;
-      -webkit-appearance: none;
-      height: 10px;
-      cursor: pointer;
-      background: #ffffff;
-      box-shadow: -100vh 0 0 100vh #ffffff;
-    }
-
-    input[type="range"]::-moz-range-progress {
-      background-color: #43e5f7;
-      padding: 5px 0;
-      box-sizing: border-box;
-    }
-
-    //input[type="range"]::-moz-range-track {
-    //  background-color: #9a905d;
-    //}
-
-    //input[type="range"]::-ms-fill-lower {
-    //  background-color: #43e5f7;
-    //}
-
-    //input[type="range"]::-ms-fill-upper {
-    //  background-color: #9a905d;
-    //}
-
+    margin-top: 10px;
+    position: relative;
+    cursor: pointer;
   }
+
+  &__timeline {
+    height: 3px;
+    border-radius: 2px;
+    width: 100%;
+    position: relative;
+    background-color: #ffffff1c;
+  }
+
+  &__timeline-bar {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+
+  //&__seekbar {
+  //  input[type='range'] {
+  //    overflow: hidden;
+  //    width: 100%;
+  //    -webkit-appearance: none;
+  //    background-color: #ffffff1c;
+  //    cursor: pointer;
+  //
+  //  }
+  //
+  //  input[type='range']::-webkit-slider-runnable-track {
+  //    height: 4px;
+  //    -webkit-appearance: none;
+  //    color: #13bba4;
+  //    margin-top: -1px;
+  //
+  //  }
+  //
+  //  input[type='range']::-webkit-slider-thumb {
+  //    width: 5px;
+  //    -webkit-appearance: none;
+  //    height: 10px;
+  //    cursor: pointer;
+  //    background: #ffffff;
+  //    box-shadow: -100vh 0 0 100vh #ffffff;
+  //  }
+  //
+  //  input[type="range"]::-moz-range-progress {
+  //    background-color: #43e5f7;
+  //    padding: 5px 0;
+  //    box-sizing: border-box;
+  //  }
+  //
+  //  //input[type="range"]::-moz-range-track {
+  //  //  background-color: #9a905d;
+  //  //}
+  //
+  //  //input[type="range"]::-ms-fill-lower {
+  //  //  background-color: #43e5f7;
+  //  //}
+  //
+  //  //input[type="range"]::-ms-fill-upper {
+  //  //  background-color: #9a905d;
+  //  //}
+  //
+  //}
 
 
   &__list {

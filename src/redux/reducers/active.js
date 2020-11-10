@@ -1,8 +1,8 @@
 const initialState = {
   choiceActiveObj: {},
   control: false,
-  timeActiv: null,
-  seconds: null
+  timeActive: null,
+  secondsDuration: null
 }
 const active = (state = initialState, action) => {
 
@@ -22,8 +22,8 @@ const active = (state = initialState, action) => {
         console.log(action)
         return {
           ...state,
-          timeActiv: timeMinSec,
-          seconds: action.payload
+          timeActive: timeMinSec,
+          secondsDuration: action.payload
         }
 
       }
