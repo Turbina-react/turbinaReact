@@ -6,16 +6,19 @@ import {useEffect, useRef, useState} from "react";
 import {Realease, TextSong, ButtonRealease} from './index'
 import {fetchBurgers} from "../../redux/actions/songs";
 import {activeSong, activeTime} from "../../redux/actions/active";
+import throttling from "../../utils/throttling";
 
 const Player = () => {
   // http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3
   const [visibleList, setVisibleList] = useState(false)
   const [visibleRealease, setVisibleRealease] = useState(false)
   const [control, setControl] = useState(false)
-  const audio = useRef()
+  // const [duration, setDuration] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const MyAudio = useRef()
   const dispatch = useDispatch()
   const songsItems = useSelector(({songs}) => songs.items)
-  const {choiceActiveObj, timeActiv, seconds} = useSelector(({active}) => active)
+  const {choiceActiveObj, timeActive, secondsDuration} = useSelector(({active}) => active)
   const ab = useSelector(({active}) => active)
   // console.log(timeActiv)
 
@@ -27,22 +30,17 @@ const Player = () => {
     setVisibleRealease(stateVisible)
   }
   const handleControl = () => {
-    const urlPause = startTrack?.audio && audio.current.paused
+    const urlPause = startTrack?.audio && MyAudio.current.paused
     // console.log(urlPause)
     const activeControl = urlPause ? false : true
     dispatch(activeSong(choiceActiveObj, activeControl))
     setControl(activeControl)
-    urlPause ? audio.current.play() : audio.current.pause()
-    audio.current.volume = 0.07
-  }
-
-  const countdown = () => {
-
-    console.log(Math.ceil(seconds))
-    //
+    urlPause ? MyAudio.current.play() : MyAudio.current.pause()
+    MyAudio.current.volume = 0.02
   }
 
 
+  // console.log(currentTime)
   const startTrack = (function () {
     const a = songsItems[0]
     if (Object.keys(choiceActiveObj).length) {
@@ -51,31 +49,29 @@ const Player = () => {
       return songsItems[0]
     }
   }());
-
-  // function throttle (callback, limit) {   // будущий таймер на трек, еще не настроен и не работает
-  //   var waiting = false;                      // Initially, we're not waiting
-  //   return function () {                      // We return a throttled function
-  //     if (!waiting) {                       // If we're not waiting
-  //       callback.apply(this, arguments);  // Execute users function
-  //       waiting = true;                   // Prevent future invocations
-  //       setTimeout(function () {          // After a period of time
-  //         waiting = false;              // And allow future invocations
-  //       }, limit);
-  //     }
-  //   }
-  // }
-  // const delayedQuery = throttle(function (second) {   // будущий таймер на трек, еще не настроен и не работает
-  //   console.log({ second: new Date(second.timeStamp) })
-  // }, 1000)
-
+  const clickHandler = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left
+    const persentage = x / rect.width * 100;
+    console.log(rect.width)
+    const timeToGo = secondsDuration / 100 * persentage
+    MyAudio.current.currentTime = timeToGo
+    // console.log(persentage)
+    // console.log(timeToGo)
+    // console.log(MyAudio.current.currentTime = timeToGo)
+  }
+  const onTimeUpdate = throttling((e) => {
+    // console.log({ second: new Date(event.timeStamp) })
+    setCurrentTime(Math.round(e.target.currentTime))
+  }, 1000)
+  // console.log(secondsDuration)
   useEffect(() => {
     handleControl()
-
   }, [choiceActiveObj.audio])
 
-  const startTime = (time) => {
+  const startTime = (e) => {
     // countdown()
-    dispatch(activeTime(time))
+    dispatch(activeTime(Math.round(e)))
   }
 
   const handleAddBurderToPlayerMain = (obj) => {
@@ -85,7 +81,7 @@ const Player = () => {
 
   return (
     <div className="player">
-      <div className="controls" >
+      <div className="controls">
         <i onClick={handleControl}>
           {control ? <BtnPause/> : <BtnPlay/>}
         </i>
@@ -94,9 +90,11 @@ const Player = () => {
       <div className="player__wrapper">
         <div className="player__main">
           <div className="player__item">
-            <audio src={startTrack?.audio} ref={audio}
-              // onTimeUpdate={evt => console.log(evt)}
-                   onLoadedMetadata={e => startTime(e.target.duration)}/>
+            <audio src={startTrack?.audio} ref={MyAudio}
+                   onTimeUpdate={onTimeUpdate}
+                   // onPlay={startTime}
+              onLoadedMetadata={e => startTime(e.target.duration)}
+            />
             <div className="player__details">
               <div className="player__artist-block">
                 {
@@ -108,10 +106,19 @@ const Player = () => {
               {
 
               }
-              <p className="player__time">{timeActiv}</p>
+              <p className="player__time">{timeActive}</p>
             </div>
-            <div className="player__seekbar">
-              <input type="range"/>
+            <div className="player__seekbar" onClick={clickHandler}>
+              <div className="player__timeline"
+
+              />
+              <div className="player__timeline-bar"
+              style={{
+                width: `${currentTime / secondsDuration * 100}%`
+              }}
+              />
+
+              {/*<input type="range"/>*/}
             </div>
           </div>
 
