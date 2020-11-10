@@ -15,15 +15,16 @@ const active = (state = initialState, action) => {
       }
     }
       case 'TRACK_TIME' : {
-        const seconds = action.payload %60
-        const minutes = Math.floor(action.payload / 60)
-        // console.log(`${minutes}.${Math.ceil(seconds)}`)
-        const timeMinSec = `${minutes}.${Math.ceil(seconds)}`
-        console.log(action)
+        const timeLeft = action.duration - action.current
+        let s = timeLeft % 60;
+        let m = Math.floor( timeLeft / 60 ) % 60;
+        s = s < 10 ? "0"+s : s;
+        m = m < 10 ? "0"+m : m;
+        const timeMinSec = `${Math.ceil(m)}.${s}`
         return {
           ...state,
           timeActive: timeMinSec,
-          secondsDuration: action.payload
+          secondsDuration: action.duration
         }
 
       }

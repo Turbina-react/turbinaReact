@@ -36,8 +36,9 @@ const Player = () => {
     dispatch(activeSong(choiceActiveObj, activeControl))
     setControl(activeControl)
     urlPause ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.02
+    MyAudio.current.volume = 0.05
   }
+  console.log(control)
 
 
   // console.log(currentTime)
@@ -49,18 +50,22 @@ const Player = () => {
       return songsItems[0]
     }
   }());
+
   const clickHandler = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left
     const persentage = x / rect.width * 100;
-    console.log(rect.width)
     const timeToGo = secondsDuration / 100 * persentage
     MyAudio.current.currentTime = timeToGo
     // console.log(persentage)
     // console.log(timeToGo)
     // console.log(MyAudio.current.currentTime = timeToGo)
   }
-  const onTimeUpdate = throttling((e) => {
+
+  const onTimeUpdate = throttling((e) => {   // будущий таймер на трек, еще не настроен и не работает
+    const duration = Math.round(e.target.duration)
+    const current = Math.round(e.target.currentTime)
+    dispatch(activeTime(duration, current))
     // console.log({ second: new Date(event.timeStamp) })
     setCurrentTime(Math.round(e.target.currentTime))
   }, 1000)
@@ -71,7 +76,7 @@ const Player = () => {
 
   const startTime = (e) => {
     // countdown()
-    dispatch(activeTime(Math.round(e)))
+    dispatch(activeTime(Math.round(e), null))
   }
 
   const handleAddBurderToPlayerMain = (obj) => {
@@ -83,7 +88,7 @@ const Player = () => {
     <div className="player">
       <div className="controls">
         <i onClick={handleControl}>
-          {control ? <BtnPause/> : <BtnPlay/>}
+          {control ? <BtnPlay/> : <BtnPause/> }
         </i>
       </div>
 
