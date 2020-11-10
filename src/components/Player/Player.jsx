@@ -7,6 +7,7 @@ import {Realease, TextSong, ButtonRealease} from './index'
 import {fetchBurgers} from "../../redux/actions/songs";
 import {activeSong, activeTime} from "../../redux/actions/active";
 import throttling from "../../utils/throttling";
+import {CSSTransitionGroup} from 'react-transition-group';
 
 const Player = () => {
   // http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3
@@ -94,9 +95,18 @@ const Player = () => {
 
   return (
     <div className="player">
+      <CSSTransitionGroup
+          transitionName="image_anim"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          //transitionAppear={true}
+          //transitionAppearTimeout={100}
+          >
+            
       {
         coverPlace780 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
       }
+      </CSSTransitionGroup>
       <div className="controls">
         <i onClick={handleControl}>
           {control ? <BtnPlay/> : <BtnPause/>}
@@ -140,18 +150,25 @@ const Player = () => {
           {
             visibleList && !coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
           }
-          <div className="player__button-wrapper">
-            {
-             visibleList && <BtnYouTube/>
-            }
-            {
-              visibleList && <ButtonRealease
+          <CSSTransitionGroup
+            transitionName="image_anim"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
+          {
+            visibleList && <div className="player__button-wrapper">
+              <BtnYouTube/>
+              <ButtonRealease
                 handleRealease={handleRealease}
                 text={!visibleRealease ? "Текст песни" : "Релизы"}
               />
-            }
-          </div>
+            </div>
+          }
+          </CSSTransitionGroup>
         </div>
+        <CSSTransitionGroup
+          transitionName="image_anim"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
         {
           visibleList &&
           <div className="player__list">
@@ -182,9 +199,7 @@ const Player = () => {
             </div>
           </div>
         }
-        {
-
-        }
+        </CSSTransitionGroup>
       </div>
 
       <i className="open-popup" onClick={openPlayer}>
