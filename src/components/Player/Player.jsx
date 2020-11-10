@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
 
-import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube} from './index'
+import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube, Details, Seekbar} from './index'
 import {useEffect, useRef, useState} from "react";
 import {Realease, TextSong, ButtonRealease} from './index'
 import {fetchBurgers} from "../../redux/actions/songs";
@@ -25,10 +25,11 @@ const Player = () => {
   useEffect(() => {
     dispatch(fetchBurgers())
   }, [dispatch])
-  const openPlayer = () => setVisibleList(visibleList => !visibleList)
+  const openPlayerList = () => setVisibleList(visibleList => !visibleList)
   const handleRealease = (stateVisible) => {
     setVisibleRealease(stateVisible)
   }
+
   const handleControl = () => {
     const urlPause = startTrack?.audio && MyAudio.current.paused
     // console.log(urlPause)
@@ -111,44 +112,20 @@ const Player = () => {
               // onPlay={startTime}
                    onLoadedMetadata={e => startTime(e.target.duration)}
             />
-            <div className="player__details">
-              <div className="player__artist-block">
-                {
-                  <p className="player__text">{startTrack?.artistname}</p>
-                }
-                <p className="player__dash">&#8212;</p>
-                <p className={classNames("player__text player__text_hide")}>{startTrack?.songname}</p>
-              </div>
-              {
+            <Details startTrack={startTrack} timeActive={timeActive}/>
+            <Seekbar currentTime={currentTime} secondsDuration={secondsDuration} clickHandler={clickHandler}/>
 
-              }
-              <p className="player__time">{timeActive}</p>
-            </div>
-            <div className="player__seekbar" onClick={clickHandler}>
-              <div className="player__timeline"
-
-              />
-              <div className="player__timeline-bar"
-                   style={{
-                     width: `${currentTime / secondsDuration * 100}%`
-                   }}
-              />
-
-              {/*<input type="range"/>*/}
-            </div>
           </div>
           {
             visibleList && !coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
           }
           <div className="player__button-wrapper">
             {
-             visibleList && <BtnYouTube/>
+              visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
             }
             {
-              visibleList && <ButtonRealease
-                handleRealease={handleRealease}
-                text={!visibleRealease ? "Текст песни" : "Релизы"}
-              />
+              visibleList &&
+              <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
             }
           </div>
         </div>
@@ -187,7 +164,7 @@ const Player = () => {
         }
       </div>
 
-      <i className="open-popup" onClick={openPlayer}>
+      <i className="open-popup" onClick={openPlayerList}>
         {!visibleList ? <BtnArrow/> : <BtnClose/>}
       </i>
     </div>
