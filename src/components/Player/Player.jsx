@@ -85,7 +85,7 @@ const Player = () => {
 
   return (
     <div className="player">
-      <div className="controls" onClick={delayedQuery}>
+      <div className="controls" >
         <i onClick={handleControl}>
           {control ? <BtnPause/> : <BtnPlay/>}
         </i>
