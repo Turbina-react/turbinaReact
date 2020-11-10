@@ -1,19 +1,21 @@
 import classNames from 'classnames';
 
-const Realease = ({artistname, songname, audio, text, onClickAddBurger}) => {
+const Realease = ({cover, artistname, songname, audio, text, onClickAddTrack, startTrack, visibleList}) => {
 
   const onnAddSong = () => {
     const obj = {
       audio,
+      cover,
       songname,
       artistname,
       text
     }
-    onClickAddBurger(obj)
+    onClickAddTrack(obj)
   }
 
   return (
     <div>
+
       <div onClick={onnAddSong} className="player__list-item">
         <div className="player__details">
           <p className="player__text">{artistname}</p>

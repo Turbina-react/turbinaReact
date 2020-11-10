@@ -1,7 +1,8 @@
 //components for Player.jsx
 import Realease from "./Release";
 import TextSong from "./TextSong";
-import ButtonRealease from "../Buttons/ButtonRealease"
+import ButtonRealease from "../Buttons/ButtonRealease";
+import BtnYouTube from "../Buttons/BtnYouTube";
 
 // svg components
 import BtnPause from "../Buttons/BtnPause";
@@ -13,6 +14,7 @@ export {
   Realease,
   TextSong,
   ButtonRealease,
+  BtnYouTube,
 }
 
 export {

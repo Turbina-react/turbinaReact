@@ -1,16 +1,8 @@
-@import '../../variables.scss';
-@import "./btnOpenClose";
-@import "./btnPlayPause";
-@import "./btnYouTube";
-
-.buttonWrapper{
-  margin: 0 auto;
-}
-.button {
-  display: inline-block;
+.btnYouTube {
+  display: flex;
+  background: #fff;
   cursor: pointer;
   white-space: pre;
-  background-color: transparent;
   border: 2px $buttonTheme solid;
   border-radius: 30px;
   font-size: 16px;
@@ -21,7 +13,7 @@
   padding: 8px 20px;
 
   &:hover {
-    background-color: transparent;
+
     opacity: 0.8;
   }
 
@@ -38,14 +30,7 @@
       margin: 20px auto 0 auto;
     }
   }
+  &__text{
 
-  @media screen and (max-width: 520px) {
-    font-size: 12px;
-    padding: 8px 8px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
   }
 }
-

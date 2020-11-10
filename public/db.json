@@ -2,6 +2,7 @@
   "songList": [
     {
       "id": 1,
+      "cover" : "https://cdn1.savepice.ru/uploads/2020/11/10/e5f41bde466d42316e908cddfb92e515-full.jpg",
       "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/KERMESSE%20-%20Bleepio.mp3",
       "songname": "Bleepio",
       "artistname": "KERMESSE",
@@ -9,6 +10,7 @@
     },
     {
       "id": 2,
+      "cover" : "https://cdn1.savepice.ru/uploads/2020/11/10/aab10c90f67ae9950ed91d8d48180bfc-full.jpg",
       "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/MAROON%205%20-%20Memories%20(Dj%20Dark,%20Mentol%20rmx).mp3",
       "songname": "Memories",
       "artistname": "MAROON",
@@ -16,6 +18,7 @@
     },
     {
       "id": 3,
+      "cover" : "https://cdn1.savepice.ru/uploads/2020/11/10/3e8ad7bf18e5a89229928cf38996f966-full.jpg",
       "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/ALMAD%20-%20Beach.mp3",
       "songname": "Beach",
       "artistname": "Almad",
@@ -23,6 +26,7 @@
     },
     {
       "id": 5,
+      "cover" : "https://cdn1.savepice.ru/uploads/2020/11/10/23c6efacd16468fd09e8c73927356d31-full.jpg",
       "audio": "https://files.krasfs.ru/__FILES/Music/House-Tropical/KYGO-CHELSEA%20CUTLER%20-%20Not%20Ok.mp3",
       "songname": "Cutler",
       "artistname": "Kygo chelsea",
