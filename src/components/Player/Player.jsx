@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
 
-import {BtnPause, BtnPlay, BtnArrow, BtnClose} from './index'
+import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube} from './index'
 import {useEffect, useRef, useState} from "react";
 import {Realease, TextSong, ButtonRealease} from './index'
 import {fetchBurgers} from "../../redux/actions/songs";
@@ -13,14 +13,14 @@ const Player = () => {
   const [visibleList, setVisibleList] = useState(false)
   const [visibleRealease, setVisibleRealease] = useState(false)
   const [control, setControl] = useState(false)
-  // const [duration, setDuration] = useState(0)
+  const [coverPlace780, setCoverPlace780] = useState(true)
+  const [coverPlace380, setCoverPlace380] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
   const MyAudio = useRef()
   const dispatch = useDispatch()
   const songsItems = useSelector(({songs}) => songs.items)
   const {choiceActiveObj, timeActive, secondsDuration} = useSelector(({active}) => active)
-  const ab = useSelector(({active}) => active)
-  // console.log(timeActiv)
+
 
   useEffect(() => {
     dispatch(fetchBurgers())
@@ -38,12 +38,10 @@ const Player = () => {
     urlPause ? MyAudio.current.play() : MyAudio.current.pause()
     MyAudio.current.volume = 0.05
   }
-  console.log(control)
 
 
-  // console.log(currentTime)
+  // console.log(songsItems)
   const startTrack = (function () {
-    const a = songsItems[0]
     if (Object.keys(choiceActiveObj).length) {
       return choiceActiveObj
     } else {
@@ -74,21 +72,34 @@ const Player = () => {
     handleControl()
   }, [choiceActiveObj.audio])
 
+  useEffect(() => {
+    const updateView = () => {
+      setCoverPlace780(window.matchMedia("(min-width: 780px)").matches);
+      setCoverPlace380(window.matchMedia("(min-width: 380px)").matches);
+    };
+    window.addEventListener('resize', updateView);
+    updateView();
+    return () => window.removeEventListener('resize', updateView);
+  }, []);
+
   const startTime = (e) => {
     // countdown()
     dispatch(activeTime(Math.round(e), null))
   }
 
-  const handleAddBurderToPlayerMain = (obj) => {
+  const handleAddTrackToPlayerMain = (obj) => {
     choiceActiveObj.audio === obj.audio && handleControl()
     dispatch(activeSong(obj, false))
   }
 
   return (
     <div className="player">
+      {
+        coverPlace780 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
+      }
       <div className="controls">
         <i onClick={handleControl}>
-          {control ? <BtnPlay/> : <BtnPause/> }
+          {control ? <BtnPlay/> : <BtnPause/>}
         </i>
       </div>
 
@@ -97,8 +108,8 @@ const Player = () => {
           <div className="player__item">
             <audio src={startTrack?.audio} ref={MyAudio}
                    onTimeUpdate={onTimeUpdate}
-                   // onPlay={startTime}
-              onLoadedMetadata={e => startTime(e.target.duration)}
+              // onPlay={startTime}
+                   onLoadedMetadata={e => startTime(e.target.duration)}
             />
             <div className="player__details">
               <div className="player__artist-block">
@@ -118,42 +129,56 @@ const Player = () => {
 
               />
               <div className="player__timeline-bar"
-              style={{
-                width: `${currentTime / secondsDuration * 100}%`
-              }}
+                   style={{
+                     width: `${currentTime / secondsDuration * 100}%`
+                   }}
               />
 
               {/*<input type="range"/>*/}
             </div>
           </div>
-
           {
-            visibleList && <ButtonRealease
-              handleRealease={handleRealease}
-              text={!visibleRealease ? "Текст песни" : "Релизы"}
-            />
+            visibleList && !coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
           }
+          <div className="player__button-wrapper">
+            {
+             visibleList && <BtnYouTube/>
+            }
+            {
+              visibleList && <ButtonRealease
+                handleRealease={handleRealease}
+                text={!visibleRealease ? "Текст песни" : "Релизы"}
+              />
+            }
+          </div>
         </div>
         {
           visibleList &&
           <div className="player__list">
-            <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
-            <div className="list"
-              // onClick={() => soundPlayPause('item.audio')}
-            >
+            {
+              !coverPlace780 && visibleList && coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
+            }
+            <div className="player__list-items">
+              <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
+              <div className="list"
+                // onClick={() => soundPlayPause('item.audio')}
+              >
 
-              {
-                !visibleRealease ?
-                  (
-                    songsItems.map((obj, index) => <Realease
-                      onClickAddBurger={handleAddBurderToPlayerMain}
-                      {...obj}
-                    />)
-                  )
+                {
+                  !visibleRealease ?
+                    (
+                      songsItems.map((obj, index) => <Realease
+                        onClickAddTrack={handleAddTrackToPlayerMain}
+                        visibleList={visibleList}
+                        startTrack={startTrack}
+                        {...obj}
+                      />)
+                    )
 
-                  : <TextSong choiceActiveText={startTrack?.text}/>
-              }
+                    : <TextSong choiceActiveText={startTrack?.text}/>
+                }
 
+              </div>
             </div>
           </div>
         }
