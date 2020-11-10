@@ -4,7 +4,8 @@ export const activeSong = (songObj, getControl) => ({
   control: getControl,
 })
 
-export const activeTime = (duration) => ({
+export const activeTime = (duration, current) => ({
   type: 'TRACK_TIME',
-  payload: duration
+  duration: duration,
+  current: current
 })
