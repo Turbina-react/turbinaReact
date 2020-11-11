@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
 
 import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube, Details, Seekbar} from './index'
 import {useEffect, useRef, useState} from "react";
@@ -21,7 +22,7 @@ const Player = () => {
   const songsItems = useSelector(({songs}) => songs.items)
   const {choiceActiveObj, timeActive, secondsDuration} = useSelector(({active}) => active)
 
-
+console.log(uuidv4())
   useEffect(() => {
     dispatch(fetchBurgers())
   }, [dispatch])
