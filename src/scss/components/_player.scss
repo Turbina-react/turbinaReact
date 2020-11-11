@@ -9,54 +9,58 @@
   bottom: 0;
   left: auto;
   right: auto;
+  z-index: 3;
   padding: 0 20px;
   @media screen and (max-width: 450px) {
     padding: 0 10px;
   }
-  &__button-wrapper{
+  &__button-wrapper {
     display: flex;
     align-items: center;
     margin-top: 20px;
   }
-
   &__cover {
     display: block;
     border-radius: 4px;
     margin-top: 16px;
     // max-width: 176px;
     // max-height: 176px;
-    @media screen and (min-width : 1024px) {
+    @media screen and (min-width: 1024px) {
       width: 176px;
       height: 176px;
       margin-right: 25px;
     }
-    @media screen and (min-width : 780px) and (max-width: 1023px) {
+    @media screen and (min-width: 780px) and (max-width: 1023px) {
       width: 164px;
       height: 164px;
       margin-right: 25px;
     }
-    @media screen and (min-width : 480px) and (max-width: 829px) {
+    @media screen and (min-width: 480px) and (max-width: 829px) {
       width: 112px;
       height: 112px;
       margin-right: 30px;
       margin-top: 0;
     }
-    @media screen and (min-width : 320px) and (max-width: 479px) {
+    @media screen and (max-width: 479px) {
       margin: 20px auto;
       width: 240px;
       height: 240px;
     }
+    @media screen and (max-width: 320px) {
+      margin: 20px auto;
+      width: 150px;
+      height: 150px;
+    }
   }
-
   &__wrapper {
     max-width: 1280px;
-    width: 1150px;
+    //width: 1150px;
+    width: 100%;
     margin: 0 10px;
     @media screen and (max-width: 320px) {
       margin: 0 5px;
     }
   }
-
   &__main {
     display: flex;
     margin-bottom: 15px;
@@ -64,15 +68,13 @@
       display: block;
     }
   }
-
   &__item {
-    width: 100%;
-    margin-right: 10px;
+    width: 96%;
+    margin: 0 10px;
     @media screen and (max-width: 550px) {
-      width: 100%;
+      width: 96%;
     }
   }
-
   &__time {
     font-style: normal;
     font-weight: 500;
@@ -96,13 +98,11 @@
       line-height: 19px;
     }
   }
-
   &__artist-block {
     display: flex;
     flex: 1 1;
     width: 10px;
   }
-
   &__text {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -110,59 +110,42 @@
     font-size: 20px;
     line-height: 22px;
     color: #fff;
-    margin-top: 0;
     text-overflow: ellipsis;
     overflow-wrap: break-word;
     outline-style: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+    flex: 1 1;
+    width: 80px;
+    overflow: hidden;
     cursor: pointer;
+    white-space: nowrap;
     @media screen and (max-width: 550px) {
       font-size: 14px;
     }
-
-    &_hide {
-      flex: 1 1;
-      margin-top: 0;
-      text-overflow: ellipsis;
-      width: 70px;
-      max-width: 60%;
-      overflow: hidden;
-      height: 1.2em;
-      white-space: nowrap;
-      overflow-wrap: break-word;
-      outline-style: none;
-    }
-
     &_song {
       font-style: italic;
       white-space: pre-line;
       font-weight: 400;
       line-height: 27px;
       margin-top: 10px;
+      padding-right: 10px;
+      width: 100%;
     }
   }
-
-
   &__details {
     display: flex;
     margin-top: 16px;
+    margin-right: 16px;
   }
-
   &__dash {
     padding: 0 10px;
     color: #fff;
-    text-overflow: ellipsis;
-    overflow-wrap: break-word;
-    outline-style: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
-
+    @media screen and (max-width: 320px) {
+      padding: 0 5px;
+    }
   }
-
   &__typeContent {
     font-style: italic;
     font-weight: normal;
@@ -170,17 +153,13 @@
     line-height: 24px;
     color: #FFFFFF;
   }
-
   &__text-song {
-
   }
-
   &__seekbar {
     margin-top: 10px;
     position: relative;
     cursor: pointer;
   }
-
   &__timeline {
     height: 3px;
     border-radius: 2px;
@@ -188,7 +167,6 @@
     position: relative;
     background-color: #ffffff1c;
   }
-
   &__timeline-bar {
     height: 100%;
     position: absolute;
@@ -196,55 +174,6 @@
     left: 0;
     background-color: #fff;
   }
-
-  //&__seekbar {
-  //  input[type='range'] {
-  //    overflow: hidden;
-  //    width: 100%;
-  //    -webkit-appearance: none;
-  //    background-color: #ffffff1c;
-  //    cursor: pointer;
-  //
-  //  }
-  //
-  //  input[type='range']::-webkit-slider-runnable-track {
-  //    height: 4px;
-  //    -webkit-appearance: none;
-  //    color: #13bba4;
-  //    margin-top: -1px;
-  //
-  //  }
-  //
-  //  input[type='range']::-webkit-slider-thumb {
-  //    width: 5px;
-  //    -webkit-appearance: none;
-  //    height: 10px;
-  //    cursor: pointer;
-  //    background: #ffffff;
-  //    box-shadow: -100vh 0 0 100vh #ffffff;
-  //  }
-  //
-  //  input[type="range"]::-moz-range-progress {
-  //    background-color: #43e5f7;
-  //    padding: 5px 0;
-  //    box-sizing: border-box;
-  //  }
-  //
-  //  //input[type="range"]::-moz-range-track {
-  //  //  background-color: #9a905d;
-  //  //}
-  //
-  //  //input[type="range"]::-ms-fill-lower {
-  //  //  background-color: #43e5f7;
-  //  //}
-  //
-  //  //input[type="range"]::-ms-fill-upper {
-  //  //  background-color: #9a905d;
-  //  //}
-  //
-  //}
-
-
   &__list {
     max-height: 115px;
     margin-top: 30px;
@@ -253,25 +182,22 @@
     overflow-x: hidden;
     display: flex;
   }
-
+  &__list-items {
+    width: 100%;
+  }
   ::-webkit-scrollbar {
     background-color: #ffffff21;
   }
-
   ::-webkit-scrollbar-thumb {
     //background: #c3c4c230;
     background: #ffffff47;
     border-radius: 7px;
   }
 }
-
-
 .controls {
   cursor: pointer;
   margin: 16px auto 0 auto;
-
 }
-
 .open-popup {
   cursor: pointer;
   margin: 16px auto 0 auto;
@@ -282,4 +208,21 @@
     height: 16px;
   }
 }
-
+.image_anim-enter {
+  opacity: 0.01;
+  transform: translateY(100%);
+}
+.image_anim-enter.image_anim-enter-active {
+  opacity: 1;
+  transition: opacity 600ms, transform 500ms;
+  transform: translateY(0%);
+}
+.image_anim-leave {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.image_anim-leave.image_anim-leave-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 600ms, transform 500ms;
+}
