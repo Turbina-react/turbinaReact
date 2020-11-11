@@ -58,11 +58,11 @@ const Header = () => {
          }
     >
 
-      <Player/>
       <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
       <h1 className={classNames('header__title')}>
         <img className={classNames('header__title-img')} src={titleSvg} alt=""/>
       </h1>
+      <Player/>
 
       <div className={classNames('header__btn-container')}>
         <div className={classNames('header__btn-checker')}>
