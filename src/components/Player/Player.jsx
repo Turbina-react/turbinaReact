@@ -37,7 +37,7 @@ const Player = () => {
     dispatch(activeSong(choiceActiveObj, activeControl))
     setControl(activeControl)
     urlPause ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.05
+    MyAudio.current.volume = 0
   }
 
 
@@ -75,8 +75,8 @@ const Player = () => {
 
   useEffect(() => {
     const updateView = () => {
-      setCoverPlace780(window.matchMedia("(min-width: 780px)").matches);
-      setCoverPlace380(window.matchMedia("(min-width: 380px)").matches);
+      setCoverPlace780(window.matchMedia("(min-width: 830px)").matches);
+      setCoverPlace380(window.matchMedia("(min-width: 480px)").matches);
     };
     window.addEventListener('resize', updateView);
     updateView();
