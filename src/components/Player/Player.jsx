@@ -77,8 +77,8 @@ const Player = () => {
 
   useEffect(() => {
     const updateView = () => {
-      setCoverPlace780(window.matchMedia("(min-width: 780px)").matches);
-      setCoverPlace380(window.matchMedia("(min-width: 380px)").matches);
+      setCoverPlace780(window.matchMedia("(min-width: 830px)").matches);
+      setCoverPlace380(window.matchMedia("(min-width: 480px)").matches);
     };
     window.addEventListener('resize', updateView);
     updateView();
