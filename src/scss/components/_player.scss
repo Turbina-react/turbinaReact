@@ -114,7 +114,7 @@
   &__text {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 20px;
     line-height: 22px;
     color: #fff;
@@ -133,7 +133,6 @@
       font-size: 14px;
     }
 
-
     &_song {
       font-style: italic;
       white-space: pre-line;
@@ -143,6 +142,12 @@
       padding-right: 10px;
       width: 100%;
     }
+    &_release {
+      &:hover {
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
   }
 
 
@@ -150,9 +155,14 @@
     display: flex;
     margin-top: 16px;
     margin-right: 16px;
+    font-weight: 500;
+    font-style: italic;
   }
 
   &__dash {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
     padding: 0 10px;
     color: #fff;
     @media screen and (max-width: 320px) {
@@ -196,7 +206,7 @@
 
   &__list {
     max-height: 115px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
     overflow-y: auto;
     overflow-x: hidden;

@@ -5,6 +5,7 @@ import Realease from "./Release";
 import TextSong from "./TextSong";
 import ButtonRealease from "../Buttons/ButtonRealease";
 import BtnYouTube from "../Buttons/BtnYouTube";
+import Playlist from "./Playlist";
 
 // svg components
 import BtnPause from "../Buttons/BtnPause";
@@ -15,6 +16,7 @@ import BtnClose from "../Buttons/BtnClose";
 export {
   Details,
   Seekbar,
+  Playlist,
   Realease,
   TextSong,
   ButtonRealease,
