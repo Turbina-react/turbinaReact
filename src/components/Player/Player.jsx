@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
 import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube, Details, Seekbar} from './index'
 import {useEffect, useRef, useState} from "react";
@@ -9,12 +9,13 @@ import {fetchBurgers} from "../../redux/actions/songs";
 import {activeSong, activeTime} from "../../redux/actions/active";
 import throttling from "../../utils/throttling";
 import {CSSTransitionGroup} from 'react-transition-group';
+import {blurBackground} from "../../redux/actions/blur";
 
 const Player = () => {
-  // http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3
-  const [visibleList, setVisibleList] = useState(false)
-  const [visibleRealease, setVisibleRealease] = useState(false)
-  const [control, setControl] = useState(false)
+
+  const [visibleList, setVisibleList] = useState(false)  // видимость плейлиста
+  const [visibleRealease, setVisibleRealease] = useState(false) // видимость релизы / текст песни
+  const [control, setControl] = useState(false)  // переключатель play / pause
   const [coverPlace780, setCoverPlace780] = useState(true)
   const [coverPlace380, setCoverPlace380] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
@@ -23,11 +24,14 @@ const Player = () => {
   const songsItems = useSelector(({songs}) => songs.items)
   const {choiceActiveObj, timeActive, secondsDuration} = useSelector(({active}) => active)
 
-console.log(uuidv4())
+// console.log(uuidv4())
   useEffect(() => {
     dispatch(fetchBurgers())
   }, [dispatch])
-  const openPlayerList = () => setVisibleList(visibleList => !visibleList)
+  const openPlayerList = () => {
+    setVisibleList(visibleList => !visibleList)
+    dispatch(blurBackground((!visibleList && !coverPlace380) ? true : false))
+  }
   const handleRealease = (stateVisible) => {
     setVisibleRealease(stateVisible)
   }
@@ -39,11 +43,10 @@ console.log(uuidv4())
     dispatch(activeSong(choiceActiveObj, activeControl))
     setControl(activeControl)
     urlPause ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.05
+    MyAudio.current.volume = 0
   }
 
 
-  // console.log(songsItems)
   const startTrack = (function () {
     if (Object.keys(choiceActiveObj).length) {
       return choiceActiveObj
@@ -58,9 +61,6 @@ console.log(uuidv4())
     const persentage = x / rect.width * 100;
     const timeToGo = secondsDuration / 100 * persentage
     MyAudio.current.currentTime = timeToGo
-    // console.log(persentage)
-    // console.log(timeToGo)
-    // console.log(MyAudio.current.currentTime = timeToGo)
   }
 
   const onTimeUpdate = throttling((e) => {   // будущий таймер на трек, еще не настроен и не работает
@@ -86,7 +86,6 @@ console.log(uuidv4())
   }, []);
 
   const startTime = (e) => {
-    // countdown()
     dispatch(activeTime(Math.round(e), null))
   }
 
@@ -98,16 +97,16 @@ console.log(uuidv4())
   return (
     <div className="player">
       <CSSTransitionGroup
-          transitionName="image_anim"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-          //transitionAppear={true}
-          //transitionAppearTimeout={100}
-          >
-            
-      {
-        coverPlace780 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
-      }
+        transitionName="image_anim"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}
+        //transitionAppear={true}
+        //transitionAppearTimeout={100}
+      >
+
+        {
+          coverPlace780 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
+        }
       </CSSTransitionGroup>
       <div className="controls">
         <i onClick={handleControl}>
@@ -134,53 +133,54 @@ console.log(uuidv4())
             transitionName="image_anim"
             transitionEnterTimeout={500}
             transitionLeaveTimeout={300}>
-          {
-            visibleList && <div className="player__button-wrapper">
-              {
-                visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
-              }
-              {
-                visibleList &&
-                <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
-              }
-            </div>
-          }
+            {
+              visibleList && <div className="player__button-wrapper">
+                {
+                  visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
+                }
+                {
+                  visibleList &&
+                  <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
+                }
+              </div>
+            }
           </CSSTransitionGroup>
         </div>
         <CSSTransitionGroup
           transitionName="image_anim"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
-        {
-          visibleList &&
-          <div className="player__list">
-            {
-              !coverPlace780 && visibleList && coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
-            }
-            <div className="player__list-items">
-              <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
-              <div className="list"
-                // onClick={() => soundPlayPause('item.audio')}
-              >
+          {
+            visibleList &&
+            <div className="player__list">
+              {
+                !coverPlace780 && visibleList && coverPlace380 &&
+                <img className="player__cover" src={startTrack?.cover}/>
+              }
+              <div className="player__list-items">
+                <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
+                <div className="list"
+                  // onClick={() => soundPlayPause('item.audio')}
+                >
 
-                {
-                  !visibleRealease ?
-                    (
-                      songsItems.map((obj, index) => <Realease
-                        onClickAddTrack={handleAddTrackToPlayerMain}
-                        visibleList={visibleList}
-                        startTrack={startTrack}
-                        {...obj}
-                      />)
-                    )
+                  {
+                    !visibleRealease ?
+                      (
+                        songsItems.map((obj, index) => <Realease
+                          onClickAddTrack={handleAddTrackToPlayerMain}
+                          visibleList={visibleList}
+                          startTrack={startTrack}
+                          {...obj}
+                        />)
+                      )
 
-                    : <TextSong choiceActiveText={startTrack?.text}/>
-                }
+                      : <TextSong choiceActiveText={startTrack?.text}/>
+                  }
 
+                </div>
               </div>
             </div>
-          </div>
-        }
+          }
         </CSSTransitionGroup>
       </div>
 
