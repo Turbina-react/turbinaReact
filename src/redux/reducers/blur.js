@@ -5,7 +5,6 @@ const initialState = {
  const blur = (state = initialState, action) => {
   switch (action.type) {
     case 'BLUR': {
-      console.log(action)
       return {
         ...state,
         toggleBackground: action.payload

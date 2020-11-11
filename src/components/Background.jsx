@@ -1,12 +1,11 @@
 import backgroungPng from '../assets/img/header_background.png';
 import {useSelector} from "react-redux";
+
 const Background = () => {
 
   const blur = useSelector(({blur}) => blur.toggleBackground)
 
-  console.log(blur)
-
-  return <img  className="background" src={backgroungPng} alt="Фон-эквалайзер"/>
+  return <img className="background" src={backgroungPng} alt="Фон-эквалайзер"/>
 
 }
 

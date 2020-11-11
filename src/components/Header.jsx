@@ -53,17 +53,8 @@ const Header = () => {
   }
   const blur = useSelector(({blur}) => blur.toggleBackground)
 
-  console.log(blur)
   return (
-    <div className={classNames('header')}
-         // style={
-         //   {
-         //     height: MyHalfHeightExampleComponent(),
-         //     // filter: blur && "blur(4px)",
-         //   } // height screen
-         // }
-    >
-
+    <div className={classNames('header')}>
 
       <Player/>
       <div className="header__wrapper"
