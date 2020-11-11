@@ -3,6 +3,7 @@ import axios from 'axios';
 import About from "./components/About.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Background from "./components/Background";
 
 function App() {
   // axios.get('http://localhost:3001/songList').then(({data}) => {
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <>
-      <div className="background"/>
+      <Background/>
       <Header/>
       <About/>
       <Footer/>
