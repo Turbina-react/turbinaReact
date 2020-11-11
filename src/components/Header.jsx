@@ -56,25 +56,26 @@ const Header = () => {
   console.log(blur)
   return (
     <div className={classNames('header')}
-         style={
-           {
-             height: MyHalfHeightExampleComponent(),
-             // filter: blur && "blur(4px)",
-           } // height screen
-         }
+         // style={
+         //   {
+         //     height: MyHalfHeightExampleComponent(),
+         //     // filter: blur && "blur(4px)",
+         //   } // height screen
+         // }
     >
 
 
-
+      <Player/>
       <div className="header__wrapper"
       style={{
+        height: MyHalfHeightExampleComponent(),
         filter: blur && "blur(4px)",
       }}>
         <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
         <h1 className={classNames('header__title')}>
           <img className={classNames('header__title-img')} src={titleSvg} alt=""/>
         </h1>
-        <Player/>
+
         <div className={classNames('header__btn-container')}>
           <div className={classNames('header__btn-checker')}>
             <ButtonStrim

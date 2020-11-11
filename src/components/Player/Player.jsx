@@ -159,7 +159,7 @@ const Player = () => {
               }
               <div className="player__list-items">
                 <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
-                <div className="list"
+                <div className="player__list-item"
                   // onClick={() => soundPlayPause('item.audio')}
                 >
 

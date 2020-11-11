@@ -12,6 +12,11 @@
 
   &__wrapper {
     display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
     width: 100%;
   }
 }
@@ -37,7 +42,6 @@
   align-items: center;
   width: 80%;
   max-width: 720px;
-  min-width: 270px;
   margin: auto;
 }
 
