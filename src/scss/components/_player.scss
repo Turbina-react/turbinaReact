@@ -124,6 +124,8 @@
     @media screen and (max-width: 550px) {
       font-size: 14px;
     }
+
+
     &_song {
       font-style: italic;
       white-space: pre-line;
@@ -182,9 +184,11 @@
     overflow-x: hidden;
     display: flex;
   }
+
   &__list-items {
     width: 100%;
   }
+
   ::-webkit-scrollbar {
     background-color: #ffffff21;
   }

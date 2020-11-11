@@ -9,7 +9,9 @@ import {activeSong, activeTime} from "../../redux/actions/active";
 import throttling from "../../utils/throttling";
 import {CSSTransitionGroup} from 'react-transition-group';
 import {blurBackground} from "../../redux/actions/blur";
+
 const Player = () => {
+
   const [visibleList, setVisibleList] = useState(false)  // видимость плейлиста
   const [visibleRealease, setVisibleRealease] = useState(false) // видимость релизы / текст песни
   const [control, setControl] = useState(false)  // переключатель play / pause
@@ -40,6 +42,8 @@ const Player = () => {
     urlPause ? MyAudio.current.play() : MyAudio.current.pause()
     MyAudio.current.volume = 0
   }
+
+
   const startTrack = (function () {
     if (Object.keys(choiceActiveObj).length) {
       return choiceActiveObj
@@ -156,8 +160,10 @@ const Player = () => {
                           {...obj}
                         />)
                       )
+
                       : <TextSong choiceActiveText={startTrack?.text}/>
                   }
+
                 </div>
               </div>
             </div>

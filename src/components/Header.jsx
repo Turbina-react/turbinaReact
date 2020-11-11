@@ -8,6 +8,7 @@ import ButtonStrim from './Buttons/ButtonStrim';
 
 import logoPng from '../assets/img/header_logo.png';
 import titleSvg from '../assets/img/header_title.svg';
+import {useSelector} from "react-redux";
 
 const socialLisks = [
   {
@@ -50,41 +51,55 @@ const Header = () => {
     const halfHeight = height ? height / 1 : '100vh'
     return halfHeight
   }
+  const blur = useSelector(({blur}) => blur.toggleBackground)
 
+  console.log(blur)
   return (
     <div className={classNames('header')}
-         style={
-           {height: MyHalfHeightExampleComponent()} // height screen
-         }
+         // style={
+         //   {
+         //     height: MyHalfHeightExampleComponent(),
+         //     // filter: blur && "blur(4px)",
+         //   } // height screen
+         // }
     >
 
-      <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
-      <h1 className={classNames('header__title')}>
-        <img className={classNames('header__title-img')} src={titleSvg} alt=""/>
-      </h1>
-      <Player/>
 
-      <div className={classNames('header__btn-container')}>
-        <div className={classNames('header__btn-checker')}>
-          <ButtonStrim
-            handleRealease={handleRealease}
-            text='Стриминги'
-            resizeSpoiler
-          />
+      <Player/>
+      <div className="header__wrapper"
+      style={{
+        height: MyHalfHeightExampleComponent(),
+        filter: blur && "blur(4px)",
+      }}>
+        <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
+        <h1 className={classNames('header__title')}>
+          <img className={classNames('header__title-img')} src={titleSvg} alt=""/>
+        </h1>
+
+        <div className={classNames('header__btn-container')}>
+          <div className={classNames('header__btn-checker')}>
+            <ButtonStrim
+              handleRealease={handleRealease}
+              text='Стриминги'
+              resizeSpoiler
+            />
+          </div>
+
+          <ul className={classNames('header__btn-spoiler')}
+              style={{display: resizeSpoiler ? "flex" : 'none'}}
+          >
+            {
+              socialLisks.map((item, index) => (
+                <SocialLinks
+                  key={`${item.title}_${index}`}
+                  {...item}
+                />
+              ))
+            }
+          </ul>
+
         </div>
 
-        <ul className={classNames('header__btn-spoiler')}
-            style={{display: resizeSpoiler ? "flex" : 'none'}}
-        >
-          {
-            socialLisks.map((item, index) => (
-              <SocialLinks
-                key={`${item.title}_${index}`}
-                {...item}
-              />
-            ))
-          }
-        </ul>
 
       </div>
 
