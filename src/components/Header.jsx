@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import {useDispatch, useSelector} from "react-redux";
+import Fade from 'react-reveal/Fade';
 import React, {useEffect, useRef, useState} from 'react'
 import {use100vh} from 'react-div-100vh'
 
@@ -8,9 +10,8 @@ import ButtonStrim from './Buttons/ButtonStrim';
 
 import logoPng from '../assets/img/header_logo.png';
 import titleSvg from '../assets/img/header_title.svg';
-import {useSelector} from "react-redux";
-import Fade from 'react-reveal/Fade';
-import { SwitchTransition, CSSTransition, TransitionGroup} from 'react-transition-group';
+
+import {fetchLinks} from "../redux/actions/links";
 
 const socialLisks = [
   {
@@ -34,6 +35,13 @@ const socialLisks = [
 
 const Header = () => {
   const [resizeSpoiler, setResizeSpoiler] = useState(true)
+  const dispatch = useDispatch()
+const socialLink = useSelector(({links}) => links.items)
+
+  // console.log(socialLink)
+  useEffect(() => {
+    dispatch(fetchLinks())
+  }, [dispatch])
 
   const handleRealease = (setvisible) => {
     setResizeSpoiler(resizeSpoiler => !resizeSpoiler)
@@ -81,7 +89,7 @@ const Header = () => {
           
             <Fade left collapse when={resizeSpoiler}>
             {
-              socialLisks.map((item, index) => (
+             socialLisks && socialLisks.map((item, index) => (
                 <SocialLinks
                   key={`${item.title}_${index}`}
                   {...item}
