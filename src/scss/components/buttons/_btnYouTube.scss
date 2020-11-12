@@ -1,19 +1,18 @@
 .btnYouTube {
   display: flex;
-  background: #fff;
+  background: url(../../../assets/img/youtube_clip.svg) no-repeat;
+  background-size: 96px 37px;
   cursor: pointer;
   white-space: pre;
-  border: 2px $buttonTheme solid;
-  border-radius: 30px;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  margin: 8px;
+  margin: 0 8px;
   color: $buttonTheme;
-  padding: 8px 20px;
+  min-width: 96px;
+  height: 37px;
 
   &:hover {
-
     opacity: 0.8;
   }
 
@@ -21,16 +20,11 @@
     transform: translateY(1px);
   }
 
-  &_realease {
-    min-width: 150px;
-    cursor: pointer;
-    @media screen and (max-width: 550px) {
-      width: 90%;
-      display: block;
-      margin: 20px auto 0 auto;
-    }
-  }
-  &__text{
-
+  @media screen and (max-width: 520px) {
+    background-size: 76px 33px;
+    min-width: 76px;
+    height: 33px;
+    margin-right: 8px;
+    margin-left: 0;
   }
 }

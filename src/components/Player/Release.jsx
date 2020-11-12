@@ -2,15 +2,8 @@ import {useDispatch} from "react-redux";
 import {activeSong} from "../../redux/actions/active";
 import {useEffect, useState} from "react";
 
-const Realease = ({song, startTrack, index, currentTime, secondsDuration}) => {
+const Realease = ({song, startTrack, index}) => {
   const dispatch = useDispatch()
-  // const [comparison, setComparison] = useState(null)
-  // const [activeIndex, setActiveIndex] = useState(0)
-
-  // useEffect(() => {
-  //
-  //   console.log(activeIndex)
-  // }, [currentTime === secondsDuration])
 
   const onnAddSong = () => {
     // setActiveIndex(index)
@@ -47,5 +40,4 @@ const Realease = ({song, startTrack, index, currentTime, secondsDuration}) => {
     </>
   )
 }
-
 export default Realease;

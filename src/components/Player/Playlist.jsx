@@ -1,6 +1,6 @@
 import {Realease, TextSong} from "./index";  // компоненты
 
-const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibleRealease, songsItems, secondsDuration, currentTime}) => {
+const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibleRealease, songsItems}) => {
 
   return (
     <div className="player__list">
@@ -17,8 +17,6 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
                 index={index}
                 song={obj}
                 startTrack={startTrack}
-                secondsDuration={secondsDuration}
-                currentTime={currentTime}
               />)
               : <TextSong choiceActiveText={startTrack?.text}/>
           }
