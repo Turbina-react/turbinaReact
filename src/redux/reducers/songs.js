@@ -1,6 +1,7 @@
 const initialState = {
   items: [],
-  isLoaded: false
+  isLoaded: false,
+  indexSong: 0
 }
 
 const songs = (state = initialState, action) => {
@@ -11,7 +12,11 @@ const songs = (state = initialState, action) => {
         items: action.payload,
         isLoaded: true,
       }
-
+    case 'NEXT_TRACK':
+      return {
+        ...state,
+        indexSong: action.indexSong
+      }
     default:
       return  state
   }

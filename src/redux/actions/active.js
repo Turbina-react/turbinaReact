@@ -1,15 +1,14 @@
-export const activeSong = (songObj, getControl) => ({
+export const activeSong = (songObj, getControl, index) => ({
   type: 'ADD_SONG_AUDIO',
   payload: songObj,
   control: getControl,
+
 })
 
-export const activeTime = (duration, current) => ({
+export const activeTime = (duration, current, equalTime) => ({
   type: 'TRACK_TIME',
   duration: duration,
-  current: current
+  current: current,
+  equalTime: equalTime
 })
 
-export const nextTrack = () => ({
-  type: 'NEXT_TRACK'
-})

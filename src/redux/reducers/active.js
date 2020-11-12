@@ -2,12 +2,14 @@ const initialState = {
   choiceActiveSong: {},
   control: false,
   timeActive: null,
-  currentTime: 0,
   secondsDuration: null,
+  currentTime: 0,
+  equalTime: false
 }
 const active = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_SONG_AUDIO': {
+
       return {
         ...state,
         choiceActiveSong: action.payload,
