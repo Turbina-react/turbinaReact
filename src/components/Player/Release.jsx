@@ -1,43 +1,47 @@
 import {useDispatch} from "react-redux";
 import {activeSong} from "../../redux/actions/active";
+import {useEffect, useState} from "react";
 
-const Realease = ({cover, audio, songname, originalAuthor, artistname, text, videoClip, selectedSong, startTrack}) => {
+const Realease = ({song, startTrack, index, currentTime, secondsDuration}) => {
   const dispatch = useDispatch()
+  // const [comparison, setComparison] = useState(null)
+  // const [activeIndex, setActiveIndex] = useState(0)
+
+  // useEffect(() => {
+  //
+  //   console.log(activeIndex)
+  // }, [currentTime === secondsDuration])
+
   const onnAddSong = () => {
+    // setActiveIndex(index)
     const obj = {
-      cover,
-      audio,
-      songname,
-      originalAuthor,
-      artistname,
-      text,
-      videoClip
+     ...song
     }
-    console.log(obj)
     dispatch(activeSong(obj, false))
   }
-  // console.log(selectedSong)
+
+
   return (
     <>
       <div onClick={onnAddSong} className="player__details">
         <p className="player__text player__text_release"
            style={{
-             fontWeight: startTrack?.audio === audio && "500"
+             fontWeight: startTrack?.audio === song.audio && "500"
            }}
         >
-          {`${originalAuthor}`}
+          {`${song.originalAuthor}`}
           <span className="player__dash player__text_release"
                 style={{
-                  fontWeight: startTrack?.audio === audio && "500"
+                  fontWeight: startTrack?.audio === song.audio && "500"
                 }}
           >feat</span>
-          {artistname}
+          {song.artistname}
           <span className="player__dash player__text_release"
                 style={{
-                  fontWeight: startTrack?.audio === audio && "500"
+                  fontWeight: startTrack?.audio === song.audio && "500"
                 }}
           >&#8212;</span>
-          {songname}
+          {song.songname}
         </p>
       </div>
     </>

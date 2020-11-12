@@ -2,6 +2,7 @@ const initialState = {
   choiceActiveObj: {},
   control: false,
   timeActive: null,
+  currentTime: null,
   secondsDuration: null,
 }
 const active = (state = initialState, action) => {

@@ -49,7 +49,7 @@ const Player = () => {
     const activeControl = urlPause ? false : !urlPause
     dispatch(activeSong(choiceActiveObj, activeControl))
     urlPause ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.04  // громкость звука
+    MyAudio.current.volume = 0.02  // громкость звука
   }
   useEffect(() => {
     handleControl()
@@ -145,6 +145,8 @@ const Player = () => {
               startTrack={startTrack}
               coverPlace830={coverPlace830}
               coverPlace480={coverPlace480}
+              secondsDuration={secondsDuration}
+              currentTime={currentTime}
               visibleList={visibleList}
               visibleRealease={visibleRealease}
               songsItems={songsItems}

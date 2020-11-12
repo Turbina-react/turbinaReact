@@ -1,6 +1,6 @@
 import {Realease, TextSong} from "./index";  // компоненты
 
-const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibleRealease, songsItems}) => {
+const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibleRealease, songsItems, secondsDuration, currentTime}) => {
 
   return (
     <div className="player__list">
@@ -13,7 +13,13 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
         <div className="player__list-item">
           {
             !visibleRealease ?
-              songsItems.map(obj => <Realease {...obj} startTrack={startTrack}/>)
+              songsItems.map((obj, index) => <Realease
+                index={index}
+                song={obj}
+                startTrack={startTrack}
+                secondsDuration={secondsDuration}
+                currentTime={currentTime}
+              />)
               : <TextSong choiceActiveText={startTrack?.text}/>
           }
 
