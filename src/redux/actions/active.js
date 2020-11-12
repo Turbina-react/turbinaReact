@@ -9,3 +9,7 @@ export const activeTime = (duration, current) => ({
   duration: duration,
   current: current
 })
+
+export const nextTrack = () => ({
+  type: 'NEXT_TRACK'
+})
