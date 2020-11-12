@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/turbinaReact/static/css/main.e95f953b.chunk.css",
+    "main.js": "/turbinaReact/static/js/main.ae262337.chunk.js",
+    "main.js.map": "/turbinaReact/static/js/main.ae262337.chunk.js.map",
+    "runtime-main.js": "/turbinaReact/static/js/runtime-main.4964d31c.js",
+    "runtime-main.js.map": "/turbinaReact/static/js/runtime-main.4964d31c.js.map",
+    "static/js/2.0e392b46.chunk.js": "/turbinaReact/static/js/2.0e392b46.chunk.js",
+    "static/js/2.0e392b46.chunk.js.map": "/turbinaReact/static/js/2.0e392b46.chunk.js.map",
+    "index.html": "/turbinaReact/index.html",
+    "static/css/main.e95f953b.chunk.css.map": "/turbinaReact/static/css/main.e95f953b.chunk.css.map",
+    "static/js/2.0e392b46.chunk.js.LICENSE.txt": "/turbinaReact/static/js/2.0e392b46.chunk.js.LICENSE.txt",
+    "static/media/app.scss": "/turbinaReact/static/media/youtube_clip.d7aca025.svg",
+    "static/media/closeSt.6c1eac8e.svg": "/turbinaReact/static/media/closeSt.6c1eac8e.svg",
+    "static/media/header_background.8221cea9.png": "/turbinaReact/static/media/header_background.8221cea9.png",
+    "static/media/header_title.4bc3b78d.svg": "/turbinaReact/static/media/header_title.4bc3b78d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4964d31c.js",
+    "static/js/2.0e392b46.chunk.js",
+    "static/css/main.e95f953b.chunk.css",
+    "static/js/main.ae262337.chunk.js"
+  ]
+}
