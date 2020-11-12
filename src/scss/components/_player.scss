@@ -222,6 +222,7 @@
     height: 16px;
   }
 }
+
 .image_anim-enter {
   opacity: 0.01;
   transform: translateY(100%);
@@ -240,3 +241,5 @@
   transform: translateY(100%);
   transition: opacity 600ms, transform 500ms;
 }
+
+

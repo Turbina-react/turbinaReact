@@ -5,6 +5,12 @@
 
 .buttonWrapper{
   margin: 0 auto;
+  display: flex;
+}
+.anim_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .button {
   display: inline-block;
