@@ -45,7 +45,7 @@ const Player = () => {
     const activeControl = startTrack?.audio && MyAudio.current.paused
     dispatch(activeSong(choiceActiveSong, !activeControl))
     activeControl ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.01
+    MyAudio.current.volume = 0.4
 
   }
 
