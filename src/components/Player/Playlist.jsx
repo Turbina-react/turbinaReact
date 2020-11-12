@@ -13,7 +13,11 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
         <div className="player__list-item">
           {
             !visibleRealease ?
-              songsItems.map(obj => <Realease {...obj} startTrack={startTrack}/>)
+              songsItems.map((obj, index) => <Realease
+                index={index}
+                song={obj}
+                startTrack={startTrack}
+              />)
               : <TextSong choiceActiveText={startTrack?.text}/>
           }
 

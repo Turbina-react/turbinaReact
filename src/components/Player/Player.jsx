@@ -8,14 +8,15 @@ import {fetchSongs} from "../../redux/actions/songs";
 import {activeSong, activeTime} from "../../redux/actions/active";
 import throttling from "../../utils/throttling";
 import Fade from 'react-reveal/Fade';
+import Playlist from "./Playlist";
 
 const Player = () => {
   // http://file-st10.karelia.ru/jvk684/782451e842577e8d700cab73358bb4aa/51655b6d2fbb382fcca39ac154500b40/i_tried_so_hard.mp3
   const [visibleList, setVisibleList] = useState(false)
   const [visibleRealease, setVisibleRealease] = useState(false)
   const [control, setControl] = useState(false)
-  const [coverPlace780, setCoverPlace780] = useState(true)
-  const [coverPlace380, setCoverPlace380] = useState(true)
+  const [coverPlace830, setCoverPlace780] = useState(true)
+  const [coverPlace480, setCoverPlace380] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
   const MyAudio = useRef()
   const dispatch = useDispatch()
@@ -75,8 +76,8 @@ const Player = () => {
 
   useEffect(() => {
     const updateView = () => {
-      setCoverPlace780(window.matchMedia("(min-width: 780px)").matches);
-      setCoverPlace380(window.matchMedia("(min-width: 380px)").matches);
+      setCoverPlace780(window.matchMedia("(min-width: 830px)").matches);
+      setCoverPlace380(window.matchMedia("(min-width: 480px)").matches);
     };
     window.addEventListener('resize', updateView);
     updateView();
@@ -87,16 +88,13 @@ const Player = () => {
     dispatch(activeTime(Math.round(e), null))
   }
 
-  const handleAddTrackToPlayerMain = (obj) => {
-    choiceActiveObj.audio === obj.audio && handleControl()
-    dispatch(activeSong(obj, false))
-  }
+
   return (
     <div className="player">
-      <Fade bottom when={visibleList}>      
-      {
-        coverPlace780 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
-      }
+      <Fade bottom when={visibleList}>
+        {
+          coverPlace830 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
+        }
       </Fade>
       <div className="controls">
         <i onClick={handleControl}>
@@ -108,63 +106,50 @@ const Player = () => {
           <div className="player__item">
             <audio src={startTrack?.audio} ref={MyAudio}
                    onTimeUpdate={onTimeUpdate}
-              // onPlay={startTime}
                    onLoadedMetadata={e => startTime(e.target.duration)}
             />
             <Details startTrack={startTrack} timeActive={timeActive}/>
             <Seekbar currentTime={currentTime} secondsDuration={secondsDuration} clickHandler={clickHandler}/>
           </div>
           {
-            visibleList && !coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
+            visibleList && !coverPlace480 && <img className="player__cover" src={startTrack?.cover}/>
           }
           <Fade bottom when={visibleList}>
-          {
-            visibleList && <div className="player__button-wrapper">
-              {
-                visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
-              }
-              {
-                visibleList &&
-                <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
-              }
-            </div>
-          }
-          </Fade>
-        </div>
-        <Fade bottom  when={visibleList}> 
-        {
-          visibleList &&
-          <div className="player__list">
             {
-              !coverPlace780 && visibleList && coverPlace380 && <img className="player__cover" src={startTrack?.cover}/>
-            }
-            <div className="player__list-items">
-              <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
-              <div className="list"
-                // onClick={() => soundPlayPause('item.audio')}
-              >
+              visibleList && <div className="player__button-wrapper">
                 {
-                  !visibleRealease ?
-                    (
-                      songsItems.map((obj, index) => <Realease
-                        onClickAddTrack={handleAddTrackToPlayerMain}
-                        visibleList={visibleList}
-                        startTrack={startTrack}
-                        {...obj}
-                      />)
-                    )
-                    : <TextSong choiceActiveText={startTrack?.text}/>
+                  visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
+                }
+                {
+                  visibleList &&
+                  <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
                 }
               </div>
-            </div>
-          </div>
-        }
-        </Fade> 
-      </div>
-      <i className="open-popup" onClick={openPlayerList}>
+            }
+          </Fade>
+        </div>
+
+        <Fade bottom when={visibleList}>
+          {
+            visibleList && <Playlist
+              startTrack={startTrack}
+              coverPlace830={coverPlace830}
+              coverPlace480={coverPlace480}
+              secondsDuration={secondsDuration}
+              currentTime={currentTime}
+              visibleList={visibleList}
+              visibleRealease={visibleRealease}
+              songsItems={songsItems}
+            />
+          }
+
+        </Fade>
+
+        </div>
+        <i className="open-popup" onClick={openPlayerList}>
         {!visibleList ? <BtnArrow/> : <BtnClose/>}
-      </i>
-    </div>
-  )
-}
-export default Player
+        </i>
+        </div>
+        )
+        }
+        export default Player
