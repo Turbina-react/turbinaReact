@@ -9,6 +9,8 @@ import ButtonStrim from './Buttons/ButtonStrim';
 import logoPng from '../assets/img/header_logo.png';
 import titleSvg from '../assets/img/header_title.svg';
 import {useSelector} from "react-redux";
+import Fade from 'react-reveal/Fade';
+import { SwitchTransition, CSSTransition, TransitionGroup} from 'react-transition-group';
 
 const socialLisks = [
   {
@@ -38,9 +40,7 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const updateView = () => {
-      setResizeSpoiler(window.matchMedia("(min-width: 520px)").matches);
-    };
+    const updateView = () => setResizeSpoiler(window.matchMedia("(min-width: 520px)").matches);
     window.addEventListener('resize', updateView);
     updateView();
     return () => window.removeEventListener('resize', updateView);
@@ -75,10 +75,11 @@ const Header = () => {
               resizeSpoiler
             />
           </div>
-
           <ul className={classNames('header__btn-spoiler')}
-              style={{display: resizeSpoiler ? "flex" : 'none'}}
+              //style={{display: resizeSpoiler ? "flex" : 'none'}}
           >
+          
+            <Fade left collapse when={resizeSpoiler}>
             {
               socialLisks.map((item, index) => (
                 <SocialLinks
@@ -87,8 +88,8 @@ const Header = () => {
                 />
               ))
             }
+            </Fade>
           </ul>
-
         </div>
 
 
