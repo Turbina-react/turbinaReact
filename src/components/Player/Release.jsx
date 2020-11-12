@@ -43,5 +43,4 @@ const Realease = ({cover, audio, songname, originalAuthor, artistname, text, vid
     </>
   )
 }
-
 export default Realease;

@@ -14,13 +14,11 @@
   @media screen and (max-width: 450px) {
     padding: 0 10px;
   }
-
   &__button-wrapper {
     display: flex;
     align-items: center;
     margin-top: 20px;
   }
-
   &__cover {
     display: block;
     border-radius: 4px;
@@ -54,7 +52,6 @@
       height: 150px;
     }
   }
-
   &__wrapper {
     max-width: 1280px;
     //width: 1150px;
@@ -64,7 +61,6 @@
       margin: 0 5px;
     }
   }
-
   &__main {
     display: flex;
     margin-bottom: 15px;
@@ -72,7 +68,6 @@
       display: block;
     }
   }
-
   &__item {
     width: 96%;
     margin: 0 10px;
@@ -80,7 +75,6 @@
       width: 96%;
     }
   }
-
   &__time {
     font-style: normal;
     font-weight: 500;
@@ -104,13 +98,11 @@
       line-height: 19px;
     }
   }
-
   &__artist-block {
     display: flex;
     flex: 1 1;
     width: 10px;
   }
-
   &__text {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -149,8 +141,6 @@
       }
     }
   }
-
-
   &__details {
     display: flex;
     margin-top: 16px;
@@ -158,7 +148,6 @@
     font-weight: 500;
     font-style: italic;
   }
-
   &__dash {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: italic;
@@ -169,7 +158,6 @@
       padding: 0 5px;
     }
   }
-
   &__typeContent {
     font-style: italic;
     font-weight: normal;
@@ -177,17 +165,13 @@
     line-height: 24px;
     color: #FFFFFF;
   }
-
   &__text-song {
-
   }
-
   &__seekbar {
     margin-top: 10px;
     position: relative;
     cursor: pointer;
   }
-
   &__timeline {
     height: 3px;
     border-radius: 2px;
@@ -195,7 +179,6 @@
     position: relative;
     background-color: #ffffff1c;
   }
-
   &__timeline-bar {
     height: 100%;
     position: absolute;
@@ -203,7 +186,6 @@
     left: 0;
     background-color: #fff;
   }
-
   &__list {
     max-height: 115px;
     margin-top: 20px;
@@ -220,21 +202,16 @@
   ::-webkit-scrollbar {
     background-color: #ffffff21;
   }
-
   ::-webkit-scrollbar-thumb {
     //background: #c3c4c230;
     background: #ffffff47;
     border-radius: 7px;
   }
 }
-
-
 .controls {
   cursor: pointer;
   margin: 16px auto 0 auto;
-
 }
-
 .open-popup {
   cursor: pointer;
   margin: 16px auto 0 auto;
@@ -245,3 +222,24 @@
     height: 16px;
   }
 }
+
+.image_anim-enter {
+  opacity: 0.01;
+  transform: translateY(100%);
+}
+.image_anim-enter.image_anim-enter-active {
+  opacity: 1;
+  transition: opacity 600ms, transform 500ms;
+  transform: translateY(0%);
+}
+.image_anim-leave {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.image_anim-leave.image_anim-leave-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 600ms, transform 500ms;
+}
+
+

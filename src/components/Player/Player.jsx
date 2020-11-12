@@ -61,7 +61,6 @@ const Player = () => {
     // console.log(timeToGo)
     // console.log(MyAudio.current.currentTime = timeToGo)
   }
-
   const onTimeUpdate = throttling((e) => {   // будущий таймер на трек, еще не настроен и не работает
     const duration = Math.round(e.target.duration)
     const current = Math.round(e.target.currentTime)
@@ -83,7 +82,6 @@ const Player = () => {
     updateView();
     return () => window.removeEventListener('resize', updateView);
   }, []);
-
   const startTime = (e) => {
     // countdown()
     dispatch(activeTime(Math.round(e), null))
@@ -93,7 +91,6 @@ const Player = () => {
     choiceActiveObj.audio === obj.audio && handleControl()
     dispatch(activeSong(obj, false))
   }
-
   return (
     <div className="player">
       <Fade bottom when={visibleList}>      
@@ -170,6 +167,4 @@ const Player = () => {
     </div>
   )
 }
-
 export default Player
-
