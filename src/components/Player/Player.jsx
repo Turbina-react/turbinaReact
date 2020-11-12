@@ -45,7 +45,7 @@ const Player = () => {
     const activeControl = startTrack?.audio && MyAudio.current.paused
     dispatch(activeSong(choiceActiveSong, !activeControl))
     activeControl ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.4
+    MyAudio.current.volume = 0.01
 
   }
 
@@ -90,17 +90,13 @@ const Player = () => {
   const startTime = (e) => {
     dispatch(activeTime(Math.round(e), 0))
   }
-  // console.log(indexSong)
-  const nextTrack = () => {
-    // console.log(startTrack)
-    // console.log(indexSong)
-    // console.log(equalTime)
 
+  const nextTrack = () => {
     songsItems.filter((item, index) => {
       if (index == indexSong) {
         const addedIndex = Object.keys(songsItems).length - 1 === indexSong ? indexSong : index + 1
         console.log(indexSong)
-        console.log(addedIndex)
+        console.log(index)
         // console.log(Object.keys(songsItems).length === index)
         dispatch(activeSong(songsItems[addedIndex], false))
         dispatch(indexNextTrack(addedIndex))

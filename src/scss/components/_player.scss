@@ -226,10 +226,16 @@
     display: flex;
     justify-content: flex-end;
     position: relative;
+    @media screen and (min-width: 830px) {
+     justify-content: flex-start;
+    }
   }
 
   &__list-items {
     width: 80%;
+    @media screen and (min-width: 830px) {
+      width: 100%;
+    }
   }
 
   ::-webkit-scrollbar {
