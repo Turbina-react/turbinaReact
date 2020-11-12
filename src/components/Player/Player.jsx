@@ -5,10 +5,11 @@ import {useEffect, useRef, useState} from "react";
 import {Details, Seekbar, Playlist, ButtonRealease} from './index' // компоненты
 import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube,} from './index' // кнопки
 
-import {fetchSongs} from "../../redux/actions/songs";
+import {fetchSongs, indexNextTrack} from "../../redux/actions/songs";
 import {activeSong, activeTime} from "../../redux/actions/active";
 import throttling from "../../utils/throttling";
 import {blurBackground} from "../../redux/actions/blur";
+import index from "react-div-100vh";
 
 
 const Player = () => {
@@ -19,14 +20,15 @@ const Player = () => {
   const MyAudio = useRef()
   const dispatch = useDispatch()
   const songsItems = useSelector(({songs}) => songs.items)
+  const indexSong = useSelector(({songs}) => songs.indexSong)
   const {
     choiceActiveSong, // выбранная активная песня
     control,  // вкл / выкл воспроизведение
     timeActive,  // время трека в минутах секундах
     secondsDuration,  // вся длина трека в секундах
-    currentTime // время трека в секундах от 0 до secondsDuration
+    currentTime, // время трека в секундах от 0 до secondsDuration
+    equalTime
   } = useSelector(({active}) => active)
-
   useEffect(() => {
     dispatch(fetchSongs())
   }, [dispatch])
@@ -40,17 +42,17 @@ const Player = () => {
   }
 
   const handleControl = () => {
-    const urlPause = startTrack?.audio && MyAudio.current.paused
-    const activeControl = urlPause ? !urlPause : true
-    dispatch(activeSong(choiceActiveSong, activeControl))
-    urlPause ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0
+    const activeControl = startTrack?.audio && MyAudio.current.paused
+    dispatch(activeSong(choiceActiveSong, !activeControl))
+    activeControl ? MyAudio.current.play() : MyAudio.current.pause()
+    MyAudio.current.volume = 0.4
+
   }
 
   const startTrack = (function () {
     return Object.keys(choiceActiveSong).length ? choiceActiveSong : songsItems[0]
   }());
-
+// console.log(startTrack)
   const clickHandler = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left
@@ -60,17 +62,20 @@ const Player = () => {
 
   }
   const onTimeUpdate = throttling((e) => {
-    // console.log(e)
+    // console.log(11)
     const duration = Math.round(e.target.duration)
     const current = Math.round(e.target.currentTime)
-    dispatch(activeTime(duration, current))
+    dispatch(activeTime(duration, current, false))
   }, 1000)
 
 
   useEffect(() => {
     handleControl()
-  }, [choiceActiveSong.audio])
+  }, [choiceActiveSong])
 
+  useEffect(() => {
+    equalTime && nextTrack()
+  }, [equalTime])
 
   useEffect(() => {
     const updateView = () => {
@@ -83,10 +88,29 @@ const Player = () => {
   }, []);
 
   const startTime = (e) => {
-
     dispatch(activeTime(Math.round(e), 0))
   }
+  // console.log(indexSong)
+  const nextTrack = () => {
+    // console.log(startTrack)
+    // console.log(indexSong)
+    // console.log(equalTime)
 
+    songsItems.filter((item, index) => {
+      if (index == indexSong) {
+        const addedIndex = Object.keys(songsItems).length - 1 === indexSong ? indexSong : index + 1
+        console.log(indexSong)
+        console.log(addedIndex)
+        // console.log(Object.keys(songsItems).length === index)
+        dispatch(activeSong(songsItems[addedIndex], false))
+        dispatch(indexNextTrack(addedIndex))
+        // console.log(songsItems[index+1])
+        return item
+      }
+
+    })
+    // dispatch(nextTrack(indexSong+1))
+  }
 
   return (
     <div className="player">
@@ -112,21 +136,21 @@ const Player = () => {
           </div>
           <Fade bottom when={visibleList}>
             <>
-          {
-            visibleList && !coverPlace480 && <img className="player__cover" src={startTrack?.cover}/>
-          }
+              {
+                visibleList && !coverPlace480 && <img className="player__cover" src={startTrack?.cover}/>
+              }
 
-            {
-              visibleList && <div className="player__button-wrapper">
-                {
-                  visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
-                }
-                {
-                  visibleList &&
-                  <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
-                }
-              </div>
-            }
+              {
+                visibleList && <div className="player__button-wrapper">
+                  {
+                    visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
+                  }
+                  {
+                    visibleList &&
+                    <ButtonRealease handleRealease={handleRealease} text={!visibleRealease ? "Текст песни" : "Релизы"}/>
+                  }
+                </div>
+              }
             </>
           </Fade>
         </div>

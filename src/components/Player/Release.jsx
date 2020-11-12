@@ -1,16 +1,16 @@
 import {useDispatch} from "react-redux";
 import {activeSong} from "../../redux/actions/active";
-import {useEffect, useState} from "react";
+import {indexNextTrack} from "../../redux/actions/songs";
 
 const Realease = ({song, startTrack, index}) => {
   const dispatch = useDispatch()
 
   const onnAddSong = () => {
-    // setActiveIndex(index)
     const obj = {
      ...song
     }
     dispatch(activeSong(obj, false))
+    dispatch(indexNextTrack(index))
   }
 
 
