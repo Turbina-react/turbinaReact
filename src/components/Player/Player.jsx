@@ -17,7 +17,8 @@ const Player = () => {
   const [visibleRealease, setVisibleRealease] = useState(false)
   const [coverPlace830, setCoverPlace780] = useState(true)
   const [coverPlace480, setCoverPlace380] = useState(true)
-  const MyAudio = useRef()
+  const MyAudio = useRef();
+  const PlayerRef = useRef();
   const dispatch = useDispatch()
   const songsItems = useSelector(({songs}) => songs.items)
   const indexSong = useSelector(({songs}) => songs.indexSong)
@@ -87,29 +88,31 @@ const Player = () => {
     return () => window.removeEventListener('resize', updateView);
   }, []);
 
+
+  useEffect(() => {    //
+    document.body.addEventListener('click' , handleOutsideClick)
+  }, [])
+  const handleOutsideClick = e => {
+    const findPlayer = e.path.some((item) => item === PlayerRef.current )
+    !findPlayer && setVisibleList(false)
+  }
   const startTime = (e) => {
     dispatch(activeTime(Math.round(e), 0))
   }
 
   const nextTrack = () => {
     songsItems.filter((item, index) => {
-      if (index == indexSong) {
-        const addedIndex = Object.keys(songsItems).length - 1 === indexSong ? indexSong : index + 1
-        console.log(indexSong)
-        console.log(index)
-        // console.log(Object.keys(songsItems).length === index)
+      if (index === indexSong) {
+        const addedIndex = Object.keys(songsItems).length - 1 === indexSong ? 0 : index + 1
         dispatch(activeSong(songsItems[addedIndex], false))
         dispatch(indexNextTrack(addedIndex))
-        // console.log(songsItems[index+1])
         return item
       }
-
     })
-    // dispatch(nextTrack(indexSong+1))
   }
 
   return (
-    <div className="player">
+    <div className="player" ref={PlayerRef}>
       <Fade bottom when={visibleList}>
         {
           coverPlace830 && visibleList && <img className="player__cover" src={startTrack?.cover}/>

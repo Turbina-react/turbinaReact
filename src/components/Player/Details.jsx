@@ -13,7 +13,7 @@ const Details = ({startTrack, timeActive}) => {
           {startTrack?.songname}
         </p>
       </div>
-      <p className="player__time">{timeActive}</p>
+      <p className="player__time">{timeActive ? timeActive : "0.00"}</p>
     </div>
   )
 }
