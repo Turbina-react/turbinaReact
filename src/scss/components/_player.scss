@@ -88,7 +88,7 @@
     font-size: 20px;
     line-height: 24px;
     text-align: right;
-    color: #fff;
+    color: $white;
     margin-left: 10px;
     text-overflow: ellipsis;
     overflow-wrap: break-word;
@@ -118,7 +118,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 22px;
-    color: #fff;
+    color: $white;
     text-overflow: ellipsis;
     overflow-wrap: break-word;
     outline-style: none;
@@ -165,7 +165,7 @@
     font-style: italic;
     font-weight: 500;
     padding: 0 10px;
-    color: #fff;
+    color: $white;
     @media screen and (max-width: 320px) {
       padding: 0 5px;
     }
@@ -176,7 +176,7 @@
     font-weight: normal;
     font-size: 20px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: $white;
   }
 
   &__text-song {
@@ -213,7 +213,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: $white;
     transition: transform .6s ease;
   }
 
@@ -243,7 +243,6 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    //background: #c3c4c230;
     background: #ffffff47;
     border-radius: 7px;
   }

@@ -16,6 +16,7 @@
     }
 }
 .form__header{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: 50px;
     line-height: 60px;
     font-style: italic;
@@ -38,6 +39,7 @@
     }
 }
 .form__text {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 22px;
     padding-top: 40px;    
@@ -76,6 +78,7 @@
 }
 
 .form__error{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     display: none;
     color: #FF0000;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -96,6 +99,7 @@
     }
 }
 .form__err{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     color: #FF0000;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-weight: 400;
@@ -117,6 +121,7 @@
 }
 
 .form__input{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -137,6 +142,7 @@
     color: rgba(0, 0, 0, 0.4);
 }    
 .form__textarea{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: hidden;

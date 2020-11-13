@@ -1,5 +1,4 @@
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid';
 import classNames from 'classnames';
 import axios from 'axios';
 import { useState } from 'react';
@@ -12,7 +11,7 @@ const AboutForm = () => {
     email: '',
     comment: '',
     checkbox: '',
-    id: uuidv4(),
+    id: '1',
   });
 
   const [errCheck, seterrCheck] = useState('')
