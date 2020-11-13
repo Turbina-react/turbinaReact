@@ -2,7 +2,6 @@ export const activeSong = (songObj, getControl, index) => ({
   type: 'ADD_SONG_AUDIO',
   payload: songObj,
   control: getControl,
-
 })
 
 export const activeTime = (duration, current, equalTime) => ({
@@ -12,3 +11,7 @@ export const activeTime = (duration, current, equalTime) => ({
   equalTime: equalTime
 })
 
+export const activeList = (visible) => ({
+  type: 'VISIBLE_LIST',
+  visibleList: visible
+})

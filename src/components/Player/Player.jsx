@@ -6,14 +6,12 @@ import {Details, Seekbar, Playlist, ButtonRealease} from './index' // компо
 import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube,} from './index' // кнопки
 
 import {fetchSongs, indexNextTrack} from "../../redux/actions/songs";
-import {activeSong, activeTime} from "../../redux/actions/active";
+import {activeList, activeSong, activeTime} from "../../redux/actions/active";
 import throttling from "../../utils/throttling";
 import {blurBackground} from "../../redux/actions/blur";
-import index from "react-div-100vh";
 
 
 const Player = () => {
-  const [visibleList, setVisibleList] = useState(false)
   const [visibleRealease, setVisibleRealease] = useState(false)
   const [coverPlace830, setCoverPlace780] = useState(true)
   const [coverPlace480, setCoverPlace380] = useState(true)
@@ -24,17 +22,19 @@ const Player = () => {
   const indexSong = useSelector(({songs}) => songs.indexSong)
   const {
     choiceActiveSong, // выбранная активная песня
-    control,  // вкл / выкл воспроизведение
+    control,  // true / false воспроизведения
     timeActive,  // время трека в минутах секундах
     secondsDuration,  // вся длина трека в секундах
     currentTime, // время трека в секундах от 0 до secondsDuration
-    equalTime
+    equalTime,  // currentTime === secondsDuration ? true
+    visibleList  // true / false Playlist
   } = useSelector(({active}) => active)
   useEffect(() => {
     dispatch(fetchSongs())
   }, [dispatch])
+
   const openPlayerList = () => {
-    setVisibleList(visibleList => !visibleList)
+    dispatch(activeList(!visibleList))
     dispatch(blurBackground((!visibleList && !coverPlace480) ? true : false))
   }
 
@@ -46,24 +46,22 @@ const Player = () => {
     const activeControl = startTrack?.audio && MyAudio.current.paused
     dispatch(activeSong(choiceActiveSong, !activeControl))
     activeControl ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.4
-
+    MyAudio.current.volume = 0.02
   }
 
   const startTrack = (function () {
     return Object.keys(choiceActiveSong).length ? choiceActiveSong : songsItems[0]
   }());
-// console.log(startTrack)
+
   const clickHandler = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left
     const persentage = x / rect.width * 100;
     const timeToGo = secondsDuration / 100 * persentage
     MyAudio.current.currentTime = timeToGo
-
   }
+
   const onTimeUpdate = throttling((e) => {
-    // console.log(11)
     const duration = Math.round(e.target.duration)
     const current = Math.round(e.target.currentTime)
     dispatch(activeTime(duration, current, false))
@@ -88,13 +86,13 @@ const Player = () => {
     return () => window.removeEventListener('resize', updateView);
   }, []);
 
-
-  useEffect(() => {    //
-    document.body.addEventListener('click' , handleOutsideClick)
+  useEffect(() => {
+    document.body.addEventListener('click', handleOutsideClick)
   }, [])
-  const handleOutsideClick = e => {
-    const findPlayer = e.path.some((item) => item === PlayerRef.current )
-    !findPlayer && setVisibleList(false)
+
+  const handleOutsideClick = e => {    // клик вне области Player закрывает Playlist
+    const findPlayer = e.path.some((item) => item === PlayerRef.current)
+    !findPlayer && dispatch(activeList(visibleList))
   }
   const startTime = (e) => {
     dispatch(activeTime(Math.round(e), 0))
@@ -115,7 +113,7 @@ const Player = () => {
     <div className="player" ref={PlayerRef}>
       <Fade bottom when={visibleList}>
         {
-          coverPlace830 && visibleList && <img className="player__cover" src={startTrack?.cover}/>
+          coverPlace830 && visibleList && <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
         }
       </Fade>
       <div className="controls">
@@ -136,7 +134,7 @@ const Player = () => {
           <Fade bottom when={visibleList}>
             <>
               {
-                visibleList && !coverPlace480 && <img className="player__cover" src={startTrack?.cover}/>
+                visibleList && !coverPlace480 && <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
               }
 
               {

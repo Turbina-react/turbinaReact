@@ -237,6 +237,9 @@
     @media screen and (min-width: 830px) {
       width: 100%;
     }
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
   }
 
   ::-webkit-scrollbar {
