@@ -68,14 +68,16 @@
     //display: none;
   }
 }
-
+.header__btn-links {
+  margin-bottom: 8px;
+}
 @media screen and (max-width: 1024px) {
   .header__logo {
     width: 40px;
   }
 }
 
-  @media screen and (max-width: 520px) {
+@media screen and (max-width: 520px) {
   .header__logo {
     width: 24px;
   }

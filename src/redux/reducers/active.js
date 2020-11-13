@@ -4,7 +4,8 @@ const initialState = {
   timeActive: 0,
   secondsDuration: null,
   currentTime: 0,
-  equalTime: false
+  equalTime: false,
+  visibleList: false
 }
 const active = (state = initialState, action) => {
   switch (action.type) {
@@ -17,7 +18,6 @@ const active = (state = initialState, action) => {
       }
     }
     case 'TRACK_TIME' : {
-
       const timeLeft = action.duration - action.current
       let s = timeLeft % 60;
       let m = Math.floor(timeLeft / 60) % 60;
@@ -30,6 +30,13 @@ const active = (state = initialState, action) => {
         secondsDuration: action.duration,
         currentTime: action.current,
         equalTime: action.duration === action.current
+      }
+    }
+    case 'VISIBLE_LIST' : {
+      console.log(action)
+      return {
+        ...state,
+        visibleList: action.visibleList
       }
 
     }

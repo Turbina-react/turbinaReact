@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
-import Fade from 'react-reveal/Fade';
 import React, {useEffect, useRef, useState} from 'react'
 import {use100vh} from 'react-div-100vh'
 
@@ -17,6 +16,8 @@ const Header = () => {
   const [resizeSpoiler, setResizeSpoiler] = useState(true)
   const dispatch = useDispatch()
   const socialLisks = useSelector(({links}) => links.items)
+  const blur = useSelector(({blur}) => blur.toggleBackground)
+  const {visibleList} = useSelector(({active}) => active)
 
   useEffect(() => {
     dispatch(fetchLinks())
@@ -38,7 +39,7 @@ const Header = () => {
     const halfHeight = height*2 ? height / 1 : '100vh'
     return halfHeight
   }
-  const blur = useSelector(({blur}) => blur.toggleBackground)
+
 
   return (
     <div className={classNames('header')}
@@ -46,12 +47,10 @@ const Header = () => {
       height: MyHalfHeightExampleComponent(),
     }}
     >
-
       <Player/>
       <div className="header__wrapper"
            style={{
-
-             filter: blur && "blur(4px)",
+             filter: visibleList && blur && "blur(4px)",
            }}>
         <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
         <h1 className={classNames('header__title')}>
@@ -78,8 +77,6 @@ const Header = () => {
             }
           </ul>
         </div>
-
-
       </div>
 
     </div>
