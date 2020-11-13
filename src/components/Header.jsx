@@ -13,32 +13,11 @@ import titleSvg from '../assets/img/header_title.svg';
 
 import {fetchLinks} from "../redux/actions/links";
 
-const socialLisks = [
-  {
-    title: 'Яндекс.Музыка ↗',
-    link: 'https://music.yandex.ru/home',
-  },
-  {
-    title: 'Apple Music ↗',
-    link: 'https://www.apple.com/ru/apple-music/',
-  },
-  {
-    title: 'VK Music ↗',
-    link: 'https://vk.com/vkmusic',
-  },
-  {
-    title: 'Spotify ↗',
-    link: 'https://www.spotify.com/by-ru/',
-  },
-
-]
-
 const Header = () => {
   const [resizeSpoiler, setResizeSpoiler] = useState(true)
   const dispatch = useDispatch()
-const socialLink = useSelector(({links}) => links.items)
+  const socialLisks = useSelector(({links}) => links.items)
 
-  // console.log(socialLink)
   useEffect(() => {
     dispatch(fetchLinks())
   }, [dispatch])
@@ -56,20 +35,24 @@ const socialLink = useSelector(({links}) => links.items)
 
   const MyHalfHeightExampleComponent = () => {
     const height = use100vh()
-    const halfHeight = height ? height / 1 : '100vh'
+    const halfHeight = height*2 ? height / 1 : '100vh'
     return halfHeight
   }
   const blur = useSelector(({blur}) => blur.toggleBackground)
 
   return (
-    <div className={classNames('header')}>
+    <div className={classNames('header')}
+    style={{
+      height: MyHalfHeightExampleComponent(),
+    }}
+    >
 
       <Player/>
       <div className="header__wrapper"
-      style={{
-        height: MyHalfHeightExampleComponent(),
-        filter: blur && "blur(4px)",
-      }}>
+           style={{
+
+             filter: blur && "blur(4px)",
+           }}>
         <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
         <h1 className={classNames('header__title')}>
           <img className={classNames('header__title-img')} src={titleSvg} alt=""/>
@@ -83,14 +66,9 @@ const socialLink = useSelector(({links}) => links.items)
               resizeSpoiler
             />
           </div>
-          <ul className={classNames('header__btn-spoiler')}
-              //style={{display: resizeSpoiler ? "flex" : 'none'}}
-          >
-          
-            
-              
+          <ul className={classNames('header__btn-spoiler')}>
             {
-             socialLisks && socialLisks.map((item, index) => (
+              socialLisks.length !== 0 && socialLisks.map((item, index) => (
                 <SocialLinks
                   resizeSpoiler={resizeSpoiler}
                   key={`${item.title}_${index}`}
@@ -98,8 +76,6 @@ const socialLink = useSelector(({links}) => links.items)
                 />
               ))
             }
-            
-            
           </ul>
         </div>
 
