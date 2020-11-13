@@ -87,16 +87,19 @@ const socialLink = useSelector(({links}) => links.items)
               //style={{display: resizeSpoiler ? "flex" : 'none'}}
           >
           
-            <Fade left collapse when={resizeSpoiler}>
+            
+              
             {
              socialLisks && socialLisks.map((item, index) => (
                 <SocialLinks
+                  resizeSpoiler={resizeSpoiler}
                   key={`${item.title}_${index}`}
                   {...item}
                 />
               ))
             }
-            </Fade>
+            
+            
           </ul>
         </div>
 

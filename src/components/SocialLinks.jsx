@@ -1,6 +1,12 @@
-const SocialLinks = ({title, link}) => {
+import Fade from  'react-reveal/Fade';
+
+const SocialLinks = ({title, link, resizeSpoiler}) => {
   return (
-    <a className="button" href={link} target="_blank">{title}</a>
+    <Fade left collaps when={resizeSpoiler}>
+      <a className="button" href={link} target="_blank">{title}</a>
+
+    </Fade>
+    
   )
 }
 
