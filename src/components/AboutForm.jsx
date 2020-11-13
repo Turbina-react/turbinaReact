@@ -22,24 +22,26 @@ const AboutForm = () => {
   });
 
   const handleSubmit = e => {
-    
+    e.preventDefault();
     setTextInf({
       ...textInf,
       submitBtn: 'Форма отправляеться ...'});
-    
-    axios.post('http://localhost:3001/form', inputField)  
-      .then(res => {
-        setTextInf({
-          ...textInf,
-          submitBtn: 'Ура, форма успешно отправлена!'});
-      })
-      .catch(err => {
-        setTextInf({
-          ...textInf,
-          submitBtn:'Форма не отправлена.',
-          errorSubmit:'Упс, что-то пошло не так, попробуйте ещё раз!'});
-      })
-      e.preventDefault();  
+    setTextInf({
+            ...textInf,
+            submitBtn: 'Ура, форма успешно отправлена!'});
+    console.log(inputField)
+    // axios.post('http://localhost:3001/form', inputField)
+    //   .then(res => {
+    //     setTextInf({
+    //       ...textInf,
+    //       submitBtn: 'Ура, форма успешно отправлена!'});
+    //   })
+    //   .catch(err => {
+    //     setTextInf({
+    //       ...textInf,
+    //       submitBtn:'Форма не отправлена.',
+    //       errorSubmit:'Упс, что-то пошло не так, попробуйте ещё раз!'});
+    //   })
   };
 
   const inputsHandler = e => {
@@ -58,7 +60,7 @@ const AboutForm = () => {
       submitBtn:'Отправить форму',
       errorSubmit:''});
   };
-  
+
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -70,7 +72,7 @@ const AboutForm = () => {
           <span className="form__error">Имя и фамилия автора в формате:</span>
         </div>
         <div className="form__field">
-          <input className="form__input" type="phone" name="phone" placeholder="Телефон" 
+          <input className="form__input" type="phone" name="phone" placeholder="Телефон"
               pattern="(\+7|8)\s?\(\d{3}\)\s?\d{3}-?\d{2}-?\d{2}|(\+7|8)\s?\d{3}(\s?|-?)\d{3}-?\d{2}-?\d{2}" minLength="11" maxLength="18"  required onChange={inputsHandler} />
           <span className="form__error">Телефон в формате: +7 (900) 000-00-00</span>
         </div>
@@ -91,10 +93,10 @@ const AboutForm = () => {
           </label>
           <span className="form__err">{errCheck}</span>
         </div>
-        <div className="form__field">  
-          <input className="form__submit" type="submit" value={textInf.submitBtn} name="submit" />
+        <div className="form__field">
+          <button className="form__submit" type="submit" value={textInf.submitBtn} name="submit" >{textInf.submitBtn}</button>
           <span className="form__err">{textInf.errorSubmit}</span>
-        </div>  
+        </div>
       </fieldset>
     </form>
   )

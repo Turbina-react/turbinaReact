@@ -44,62 +44,6 @@
   "form": [
     {
       "name": "Asd Asd",
-      "phone": "+79999999999",
-      "email": "asd@asd.com",
-      "comment": "asd",
-      "checkbox": "on",
-      "id": "2"
-    },
-    {
-      "name": "Asd Asd",
-      "phone": "+79999999999",
-      "email": "asd@asd.com",
-      "comment": "asdasdasd",
-      "checkbox": "on",
-      "id": "3"
-    },
-    {
-      "name": "Asd Asd",
-      "phone": "+79999999999",
-      "email": "asd@asd.com",
-      "comment": "вапв",
-      "checkbox": "on",
-      "id": "4"
-    },
-    {
-      "name": "Asd Asd",
-      "phone": "+79055555555",
-      "email": "asd@asd.ru",
-      "comment": "asd",
-      "checkbox": true,
-      "id": "5"
-    },
-    {
-      "name": "Asd Asd",
-      "phone": "+79055555555",
-      "email": "asd@asd.ru",
-      "comment": "ыфв",
-      "checkbox": true,
-      "id": "6"
-    },
-    {
-      "name": "Asd Asd",
-      "phone": "+79055555555",
-      "email": "asd@asd.ru",
-      "comment": "asd",
-      "checkbox": true,
-      "id": "7"
-    },
-    {
-      "name": "Asd Asd",
-      "phone": "+79055555555",
-      "email": "asd@asd.ru",
-      "comment": "xcsdsd",
-      "checkbox": true,
-      "id": "8"
-    },
-    {
-      "name": "Asd Asd",
       "phone": "+78956655442",
       "email": "asd@asd.com",
       "comment": "asdasdas",
@@ -107,22 +51,22 @@
       "id": "1"
     }
   ],
-  "socialLisks" : [
-  {
-    "title": "Яндекс.Музыка ↗",
-    "link": "https://music.yandex.ru/home"
-  },
-  {
-    "title": "Apple Music ↗",
-    "link": "https://www.apple.com/ru/apple-music/"
-  },
-  {
-    "title": "VK Music ↗",
-    "link": "https://vk.com/vkmusic"
-  },
-  {
-    "title": "Spotify ↗",
-    "link": "https://www.spotify.com/by-ru/"
-  }
-]
+  "socialLisks": [
+    {
+      "title": "Яндекс.Музыка ↗",
+      "link": "https://music.yandex.ru/home"
+    },
+    {
+      "title": "Apple Music ↗",
+      "link": "https://www.apple.com/ru/apple-music/"
+    },
+    {
+      "title": "VK Music ↗",
+      "link": "https://vk.com/vkmusic"
+    },
+    {
+      "title": "Spotify ↗",
+      "link": "https://www.spotify.com/by-ru/"
+    }
+  ]
 }
