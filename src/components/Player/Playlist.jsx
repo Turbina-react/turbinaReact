@@ -1,7 +1,6 @@
 import {Realease, TextSong} from "./index";  // компоненты
 
 const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibleRealease, songsItems}) => {
-
   return (
     <div className="player__list">
       {
@@ -9,7 +8,9 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
         <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
       }
       <div className="player__list-items">
-        <h3 className="player__typeContent">{!visibleRealease ? "Релизы: " : "Текст песни: "} </h3>
+        <h3 className="player__typeContent">
+          {!visibleRealease ? (songsItems.length === 1 ? "Пока что у нас только 1 релиз" : "Релизы: ") : "Текст песни: "}
+        </h3>
         <div className="player__list-item">
           {
             !visibleRealease ?
@@ -17,6 +18,7 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
                 index={index}
                 song={obj}
                 startTrack={startTrack}
+                key={index}
               />)
               : <TextSong choiceActiveText={startTrack?.text}/>
           }
