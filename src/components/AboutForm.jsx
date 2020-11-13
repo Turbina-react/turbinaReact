@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const AboutForm = () => {
-  
+
   const [inputField , setInputField] = useState({
     name: '',
     phone: '',
@@ -13,31 +13,55 @@ const AboutForm = () => {
     checkbox: '',
     id: '1',
   });
-  const [textSubmit, settextSubmit] = useState('');
+
+  const [errCheck, seterrCheck] = useState('')
+
+  const [textInf , setTextInf] = useState({
+    submitBtn: 'Отправить форму',
+    errorSubmit: '',
+  });
+
+  const handleSubmit = e => {
+    
+    setTextInf({
+      ...textInf,
+      submitBtn: 'Форма отправляеться ...'});
+    
+    axios.post('http://localhost:3001/form', inputField)  
+      .then(res => {
+        setTextInf({
+          ...textInf,
+          submitBtn: 'Ура, форма успешно отправлена!'});
+      })
+      .catch(err => {
+        setTextInf({
+          ...textInf,
+          submitBtn:'Форма не отправлена.',
+          errorSubmit:'Упс, что-то пошло не так, попробуйте ещё раз!'});
+      })
+      e.preventDefault();  
+  };
 
   const inputsHandler = e => {
+    e.target.name == 'checkbox' ?
     setInputField({
+      ...inputField,
+      [e.target.name]: e.target.checked
+    }) : setInputField({
       ...inputField,
       [e.target.name]: e.target.value
     });
+    e.target.name === 'checkbox' && e.target.checked === true ?
+      seterrCheck('') : seterrCheck('Это поле обязательно');
+    setTextInf({
+      ...textInf,
+      submitBtn:'Отправить форму',
+      errorSubmit:''});
   };
   
-  const handleSubmit = e => {
-    e.preventDefault()
-    settextSubmit('Форма отправляеться ...')
-    axios.post('http://localhost:3001/form', inputField)  
-      .then(res => {
-        console.log(res);
-        settextSubmit('Форма успешно отправлена');
-      })
-      .catch(err => {
-        console.log('err', err)
-        settextSubmit('Что то пошло не так форма не отправилась Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!')
-      })
-  };
+
   return (
-    <form className="form" name="register" onSubmit={handleSubmit}>
-   
+    <form className="form" onSubmit={handleSubmit}>
       <h2 className="form__header">ФОРМА.</h2>
       <p className="form__text">Заполняя эту форму, вы становитесь частью проекта.</p>
       <fieldset className="form__fieldset">
@@ -65,10 +89,12 @@ const AboutForm = () => {
               Согласен с &#160;
             <a href="#" target="_blank" className="form__checkbox-link">офертой</a>
           </label>
-          <span className="form__error">Необходимо согласиться</span>
+          <span className="form__err">{errCheck}</span>
+        </div>
+        <div className="form__field">  
+          <input className="form__submit" type="submit" value={textInf.submitBtn} name="submit" />
+          <span className="form__err">{textInf.errorSubmit}</span>
         </div>  
-        <input className="form__submit" type="submit" value="Отправить форму" name="submit" />
-        <span className="form__error1">{textSubmit}</span>
       </fieldset>
     </form>
   )

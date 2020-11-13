@@ -95,6 +95,27 @@
         line-height: 20px;
     }
 }
+.form__err{
+    color: #FF0000;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 6px;
+    animation: errors .1s ease-in-out;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    @media screen and (max-width: 320px) {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
 .form__input{
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-weight: 400;
