@@ -1,3 +1,5 @@
+import {ADD_SONG_AUDIO, CONVERT_TIME, TRACK_TIME, VISIBLE_LIST} from "../constants";
+
 const initialState = {
   choiceActiveSong: {},
   control: false,
@@ -7,36 +9,36 @@ const initialState = {
   equalTime: false,
   visibleList: false
 }
+
 const active = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_SONG_AUDIO': {
+    case ADD_SONG_AUDIO: {
+      return {
+        ...state,
+        choiceActiveSong: action.payload.songObj,
+        control: action.payload.getControl,
+      }
+    }
+    case TRACK_TIME : {
 
       return {
         ...state,
-        choiceActiveSong: action.payload,
-        control: action.control,
+        secondsDuration: action.payload.duration,
+        currentTime: action.payload.current,
+        equalTime: action.payload.duration === action.payload.current
       }
     }
-    case 'TRACK_TIME' : {
-      const timeLeft = action.duration - action.current
-      let s = timeLeft % 60;
-      let m = Math.floor(timeLeft / 60) % 60;
-      s = s < 10 ? "0" + s : s;
-      m = m < 10 ? "0" + m : m;
-      let timeMinSec = `${m && Math.ceil(m)}.${s && s}`
+    case CONVERT_TIME : {
+      console.log(action.payload)
       return {
         ...state,
-        timeActive: timeMinSec,
-        secondsDuration: action.duration,
-        currentTime: action.current,
-        equalTime: action.duration === action.current
+        timeActive: action.payload
       }
     }
-    case 'VISIBLE_LIST' : {
-      console.log(action)
+    case VISIBLE_LIST : {
       return {
         ...state,
-        visibleList: action.visibleList
+        visibleList: action.payload
       }
 
     }

@@ -10,14 +10,14 @@ const Footer = () => {
     dispatch(fetchSocialLinks())
   }, [dispatch])
   return (
-    <div className="footer">
+    <footer className="footer">
       <p className="footer__text"> &copy; Маршак, 2020.</p>
       <p className="footer__text">Сделано студентами {` `}
         <a className="footer__link" href={socialLinks.length !== 0 ? socialLinks[0].link : undefined} target="_blank">
           {socialLinks.length !== 0 && socialLinks[0].title}
         </a>
       </p>
-    </div>
+    </footer>
   )
 }
 
