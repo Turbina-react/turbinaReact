@@ -3,9 +3,9 @@ const initialState = {
 
 }
 
-const links = (state = initialState, action) => {
+const musicLinks = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_LINKS':
+    case 'SET_MUSIC_LINKS':
       return {
         ...state,
         items: action.payload,
@@ -17,4 +17,4 @@ const links = (state = initialState, action) => {
   }
 }
 
-export default links;
+export default musicLinks;

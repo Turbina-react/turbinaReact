@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import {useDispatch} from "react-redux";
 import {activeSong} from "../../redux/actions/active";
 import {indexNextTrack} from "../../redux/actions/songs";
@@ -17,19 +18,19 @@ const Realease = ({song, startTrack, index}) => {
   return (
     <>
       <div onClick={onnAddSong} className="player__details">
-        <p className="player__text player__text_release"
+        <p className={classNames("player__text", "player__text_release")}
            style={{
              fontWeight: startTrack?.audio === song.audio && "500"
            }}
         >
           {`${song.originalAuthor}`}
-          <span className="player__dash player__text_release"
+          <span className={classNames("player__dash", "player__dash_release")}
                 style={{
                   fontWeight: startTrack?.audio === song.audio && "500"
                 }}
           >feat</span>
           {song.artistname}
-          <span className="player__dash player__text_release"
+          <span className={classNames("player__dash", "player__dash_release")}
                 style={{
                   fontWeight: startTrack?.audio === song.audio && "500"
                 }}

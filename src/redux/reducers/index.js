@@ -3,13 +3,15 @@ import {combineReducers} from "redux";
 import songs from "./songs";
 import active from "./active";
 import blur from "./blur";
-import links from './links'
+import musicLinks from './musicLinks';
+import socialLinks from './socialLinks';
 
 const rootReduser = combineReducers({
   songs,
   active,
   blur,
-  links
+  musicLinks,
+  socialLinks
 })
 
 export default rootReduser

@@ -8,7 +8,7 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
         <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
       }
       <div className="player__list-items">
-        <h3 className="player__typeContent">
+        <h3 className="player__type-content">
           {!visibleRealease ? (songsItems.length === 1 ? "Пока что у нас только 1 релиз" : "Релизы: ") : "Текст песни: "}
         </h3>
         <div className="player__list-item">
@@ -18,7 +18,7 @@ const Playlist = ({startTrack, coverPlace830, coverPlace480, visibleList, visibl
                 index={index}
                 song={obj}
                 startTrack={startTrack}
-                key={index}
+                key={obj.id}
               />)
               : <TextSong choiceActiveText={startTrack?.text}/>
           }

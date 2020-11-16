@@ -15,7 +15,7 @@ const ButtonStrim = ({text, handleRealease}) => {
   }
 
   return (
-    <div onClick={onTogglePopup} className="buttonWrapper">
+    <div onClick={onTogglePopup} className="button-wrapper">
       <Fade  left collapse when={visiblePopup}>
         <button className={classNames("button", "anim_btn")}>
           {text}

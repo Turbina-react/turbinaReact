@@ -35,7 +35,7 @@ const Player = () => {
 
   const openPlayerList = () => {
     dispatch(activeList(!visibleList))
-    dispatch(blurBackground((!visibleList && !coverPlace480) ? true : false))
+    dispatch(blurBackground(!visibleList && !coverPlace480))
   }
 
   const handleRealease = (stateVisible) => {
@@ -46,7 +46,7 @@ const Player = () => {
     const activeControl = startTrack?.audio && MyAudio.current.paused
     dispatch(activeSong(choiceActiveSong, !activeControl))
     activeControl ? MyAudio.current.play() : MyAudio.current.pause()
-    MyAudio.current.volume = 0.02
+    MyAudio.current.volume = 0.05
   }
 
   const startTrack = (function () {
@@ -134,13 +134,14 @@ const Player = () => {
           <Fade bottom when={visibleList}>
             <>
               {
-                visibleList && !coverPlace480 && <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
+                visibleList && !coverPlace480 &&
+                <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
               }
 
               {
                 visibleList && <div className="player__button-wrapper">
                   {
-                    visibleList && startTrack?.videoClip !== "" && <BtnYouTube/>
+                    visibleList && startTrack?.videoClip !== "" && <BtnYouTube videoClip={startTrack?.videoClip}/>
                   }
                   {
                     visibleList &&

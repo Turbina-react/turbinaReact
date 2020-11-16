@@ -1,11 +1,7 @@
-import axios from "axios";
-
+import dataList from '../../playList'
 
 export const fetchSongs = () => (dispatch) => {
-  // dispatch(setLoaded(false))
-  axios.get(`http://localhost:3001/songList`).then(({data}) => {
-    dispatch(setSongs(data))
-  })
+    dispatch(setSongs(dataList.songList))
 }
 
 export const setSongs = (items) => ({

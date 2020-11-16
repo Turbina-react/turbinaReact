@@ -64,9 +64,6 @@
   justify-content: right;
   align-items: flex-end;
   flex-direction: column;
-  @media screen and (max-width: 520px) {
-    //display: none;
-  }
 }
 .header__btn-links {
   margin-bottom: 8px;

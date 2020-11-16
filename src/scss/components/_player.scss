@@ -113,7 +113,7 @@
   }
 
   &__text {
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-family: "Inter", Helvetica, Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -161,7 +161,7 @@
   }
 
   &__dash {
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-family: "Inter", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-weight: 500;
     padding: 0 10px;
@@ -169,9 +169,15 @@
     @media screen and (max-width: 320px) {
       padding: 0 5px;
     }
+    &_release {
+      &:hover {
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
   }
 
-  &__typeContent {
+  &__type-content {
     font-style: italic;
     font-weight: normal;
     font-size: 20px;

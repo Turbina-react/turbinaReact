@@ -12,7 +12,7 @@ const ButtonRealease = ({text, handleRealease}) => {
   return (
     <button
       onClick={onStateChanges}
-      className={classNames("button button_realease")}>
+      className={classNames("button", "button_realease")}>
       {text}
     </button>
   )
