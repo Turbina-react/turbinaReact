@@ -1,6 +1,5 @@
-import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {use100vh} from 'react-div-100vh'
 
 import SocialLinks from "./SocialLinks";
@@ -10,17 +9,17 @@ import ButtonStrim from './Buttons/ButtonStrim';
 import logoPng from '../assets/img/header_logo.png';
 import titleSvg from '../assets/img/header_title.svg';
 
-import {fetchLinks} from "../redux/actions/links";
+import {fetchMusicLinks} from "../redux/actions/musicLinks";
 
 const Header = () => {
   const [resizeSpoiler, setResizeSpoiler] = useState(true)
   const dispatch = useDispatch()
-  const socialLisks = useSelector(({links}) => links.items)
+  const musicLisks = useSelector(({musicLinks}) => musicLinks.items)
   const blur = useSelector(({blur}) => blur.toggleBackground)
   const {visibleList} = useSelector(({active}) => active)
 
   useEffect(() => {
-    dispatch(fetchLinks())
+    dispatch(fetchMusicLinks())
   }, [dispatch])
 
   const handleRealease = (setvisible) => {
@@ -36,13 +35,13 @@ const Header = () => {
 
   const MyHalfHeightExampleComponent = () => {
     const height = use100vh()
-    const halfHeight = height*2 ? height / 1 : '100vh'
+    const halfHeight = height * 2 ? height : '100vh'
     return halfHeight
   }
 
 
   return (
-    <div className={classNames('header')}
+    <div className='header'
     style={{
       height: MyHalfHeightExampleComponent(),
     }}
@@ -52,22 +51,22 @@ const Header = () => {
            style={{
              filter: visibleList && blur && "blur(4px)",
            }}>
-        <img className={classNames('header__logo')} src={logoPng} alt="Трубина"/>
-        <h1 className={classNames('header__title')}>
-          <img className={classNames('header__title-img')} src={titleSvg} alt=""/>
+        <img className='header__logo' src={logoPng} alt="Трубина"/>
+        <h1 className='header__title'>
+          <img className='header__title-img' src={titleSvg} alt=""/>
         </h1>
 
-        <div className={classNames('header__btn-container')}>
-          <div className={classNames('header__btn-checker')}>
+        <div className='header__btn-container'>
+          <div className='header__btn-checker'>
             <ButtonStrim
               handleRealease={handleRealease}
               text='Стриминги'
               resizeSpoiler
             />
           </div>
-          <ul className={classNames('header__btn-spoiler')}>
+          <ul className='header__btn-spoiler'>
             {
-              socialLisks.length !== 0 && socialLisks.map((item, index) => (
+              musicLisks.length !== 0 && musicLisks.map((item, index) => (
                 <SocialLinks
                   resizeSpoiler={resizeSpoiler}
                   key={`${item.title}_${index}`}

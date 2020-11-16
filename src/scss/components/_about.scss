@@ -1,12 +1,12 @@
 .about {
-  padding: 1px 10px 0 10px;
+  padding: 0 10px;
   width: 100%;
   position: relative;
   max-width: 1280px;
   margin: 0 auto;
 
   @media screen and (max-width: 320px) {
-    padding: 1px 5px 0 5px;
+    padding: 0 5px;
   }
 }
 
@@ -29,7 +29,7 @@
 }
 
 .about__text {
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
   font-size: 16px;
   color: $black;
   line-height: 22px;
@@ -70,7 +70,7 @@
 }
 
 .about__header {
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
   font-size: 50px;
   color: $black;
   line-height: 60px;

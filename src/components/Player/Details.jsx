@@ -5,7 +5,7 @@ const Details = ({startTrack, timeActive}) => {
     <div className="player__details">
       <div className="player__artist-block">
         <p className="player__text">
-          {`${startTrack?.originalAuthor}`}
+          {startTrack?.originalAuthor}
           <span className="player__dash">feat</span>
           {startTrack?.artistname}
           <span className="player__dash">&#8212;</span>
