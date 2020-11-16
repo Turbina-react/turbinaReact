@@ -6,10 +6,12 @@ import {Details, Seekbar, Playlist, ButtonRealease} from './index' // компо
 import {BtnPause, BtnPlay, BtnArrow, BtnClose, BtnYouTube,} from './index' // кнопки
 
 import {fetchSongs, indexNextTrack} from "../../redux/actions/songs";
-import {activeList, activeSong, activeTime} from "../../redux/actions/active";
-import throttling from "../../utils/throttling";
+import {activeList, activeSong, activeTime, convertTime} from "../../redux/actions/active";
 import {blurBackground} from "../../redux/actions/blur";
 
+import throttling from "../../utils/throttling";
+import convertMinutes from "../../utils/convertMinutes";
+// import convertMinutes from "../../utils/convertMinutes";
 
 const Player = () => {
   const [visibleRealease, setVisibleRealease] = useState(false)
@@ -23,7 +25,7 @@ const Player = () => {
   const {
     choiceActiveSong, // выбранная активная песня
     control,  // true / false воспроизведения
-    timeActive,  // время трека в минутах секундах
+    timeActive,  // первоначальное время трека в минутах секундах
     secondsDuration,  // вся длина трека в секундах
     currentTime, // время трека в секундах от 0 до secondsDuration
     equalTime,  // currentTime === secondsDuration ? true
@@ -95,6 +97,8 @@ const Player = () => {
     !findPlayer && dispatch(activeList(visibleList))
   }
   const startTime = (e) => {
+    const onConvertMinutes = convertMinutes(Math.round(e), currentTime)
+    dispatch(convertTime(onConvertMinutes))
     dispatch(activeTime(Math.round(e), 0))
   }
 

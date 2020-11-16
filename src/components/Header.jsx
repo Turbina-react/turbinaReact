@@ -41,7 +41,7 @@ const Header = () => {
 
 
   return (
-    <div className='header'
+    <header className='header'
     style={{
       height: MyHalfHeightExampleComponent(),
     }}
@@ -63,6 +63,7 @@ const Header = () => {
               text='Стриминги'
               resizeSpoiler
             />
+            
           </div>
           <ul className='header__btn-spoiler'>
             {
@@ -78,7 +79,7 @@ const Header = () => {
         </div>
       </div>
 
-    </div>
+    </header>
   )
 }
 

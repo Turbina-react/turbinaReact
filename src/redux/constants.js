@@ -1,0 +1,9 @@
+export const SET_SONGS = 'SET_SONGS';
+export const NEXT_TRACK = 'NEXT_TRACK';
+export const ADD_SONG_AUDIO = 'ADD_SONG_AUDIO';
+export const TRACK_TIME = 'TRACK_TIME';
+export const VISIBLE_LIST = 'VISIBLE_LIST';
+export const BLUR = 'BLUR';
+export const SET_MUSIC_LINKS = 'SET_MUSIC_LINKS';
+export const SET_SOCIAL_LINKS = 'SET_SOCIAL_LINKS';
+export const CONVERT_TIME = 'CONVERT_TIME';

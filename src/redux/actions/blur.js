@@ -1,4 +1,6 @@
+import {BLUR} from "../constants";
+
 export const blurBackground = (toggle) => ({
-  type: 'BLUR',
+  type: BLUR,
   payload: toggle,
 })
