@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/turbinaReact/static/css/main.df1b9b7f.chunk.css",
-    "main.js": "/turbinaReact/static/js/main.40b53c20.chunk.js",
-    "main.js.map": "/turbinaReact/static/js/main.40b53c20.chunk.js.map",
+    "main.css": "/turbinaReact/static/css/main.57e8db5a.chunk.css",
+    "main.js": "/turbinaReact/static/js/main.926a9b5e.chunk.js",
+    "main.js.map": "/turbinaReact/static/js/main.926a9b5e.chunk.js.map",
     "runtime-main.js": "/turbinaReact/static/js/runtime-main.4964d31c.js",
     "runtime-main.js.map": "/turbinaReact/static/js/runtime-main.4964d31c.js.map",
     "static/js/2.e1dcfc16.chunk.js": "/turbinaReact/static/js/2.e1dcfc16.chunk.js",
     "static/js/2.e1dcfc16.chunk.js.map": "/turbinaReact/static/js/2.e1dcfc16.chunk.js.map",
     "index.html": "/turbinaReact/index.html",
-    "static/css/main.df1b9b7f.chunk.css.map": "/turbinaReact/static/css/main.df1b9b7f.chunk.css.map",
+    "static/css/main.57e8db5a.chunk.css.map": "/turbinaReact/static/css/main.57e8db5a.chunk.css.map",
     "static/js/2.e1dcfc16.chunk.js.LICENSE.txt": "/turbinaReact/static/js/2.e1dcfc16.chunk.js.LICENSE.txt",
     "static/media/app.scss": "/turbinaReact/static/media/youtube_clip.d7aca025.svg",
     "static/media/closeSt.6c1eac8e.svg": "/turbinaReact/static/media/closeSt.6c1eac8e.svg",
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.4964d31c.js",
     "static/js/2.e1dcfc16.chunk.js",
-    "static/css/main.df1b9b7f.chunk.css",
-    "static/js/main.40b53c20.chunk.js"
+    "static/css/main.57e8db5a.chunk.css",
+    "static/js/main.926a9b5e.chunk.js"
   ]
 }
