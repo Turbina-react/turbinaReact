@@ -39,7 +39,7 @@ https://turbina-react.github.io/turbinaReact/
  * Дмитрий Ильин - верстальщик
 
 ### Структура вложенности компонентов
-![Структура компонентов](https://github.com/Turbina-react/turbinaReact/tree/dev/src/assets/img/component-structure.jpg)
+![Структура компонентов](https://github.com/Turbina-react/turbinaReact/raw/dev/src/assets/img/component-structure.jpg)
 
 ### Презентация на YouTube
 [![Презентация на YouTube](https://cdn1.savepice.ru/uploads/2020/11/12/a932455dd61f32bb7c098c7f858ec09d-full.png)](https://youtu.be/s06iY0t0On0)
