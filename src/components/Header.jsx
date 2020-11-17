@@ -39,7 +39,6 @@ const Header = () => {
     return halfHeight
   }
 
-
   return (
     <header className='header'
             style={{
