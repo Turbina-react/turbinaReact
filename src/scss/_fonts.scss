@@ -1,18 +1,26 @@
-
-
-// подключаем шрифты как в 4ом спринте
-// ниже пример болванка, не стоит строго его придерживаться
-// в папке fonts нужно удалить лишние и загрузить новые шрифты Inter,
-// если не ошибаюсь Inter был в 4ом спринте
-
-
-//@font-face {
-//  font-family: 'Proxima Nova';
-//  src: url('./fonts/ProximaNova-Black.eot');
-//  src: local('./fonts/Proxima Nova Black'), local('ProximaNova-Black'),
-//    url('./fonts/ProximaNova-Black.eot?#iefix') format('embedded-opentype'),
-//    url('./fonts/ProximaNova-Black.woff') format('woff'),
-//    url('./fonts/ProximaNova-Black.ttf') format('truetype');
-//  font-weight: 900;
-//  font-style: normal;
-//}
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./fonts/Inter-Regular.woff2") format("woff2"),
+         url("./fonts/Inter-Regular.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("./fonts/Inter-Medium.woff2") format("woff2"),
+         url("./fonts/Inter-Medium.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("./fonts/Inter-Black.woff2") format("woff2"),
+         url("./fonts/Inter-Black.woff") format("woff");
+  }

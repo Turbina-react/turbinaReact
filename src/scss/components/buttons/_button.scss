@@ -1,0 +1,62 @@
+@import '../../variables.scss';
+@import "./btnOpenClose";
+@import "./btnPlayPause";
+@import "./btnYouTube";
+
+.button-wrapper{
+  margin: 0 auto 8px auto;
+  display: flex;
+}
+.anim_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.button {
+  display: inline-block;
+  cursor: pointer;
+  white-space: pre;
+  background-color: transparent;
+  border: 2px $buttonTheme solid;
+  border-radius: 30px;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: $buttonTheme;
+  padding: 5px 20px;
+  min-height: 37px;
+
+  &:hover {
+    background-color: transparent;
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &_realease {
+    min-width: 150px;
+    cursor: pointer;
+    @media screen and (max-width: 650px) {
+      width: 90%;
+      display: block;
+      margin: 0 auto 0 auto;
+    }
+    @media screen and (max-width: 320px) {
+      min-width: 70px;
+    }
+  }
+&:focus {
+  border: 2px solid $focus;
+}
+  @media screen and (max-width: 520px) {
+    font-size: 12px;
+    padding: 8px 8px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+}
+

@@ -1,0 +1,55 @@
+@import '../variables';
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    padding:20px 15px;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 500px) {
+    display: grid;
+    justify-content: center;
+    }
+    
+}
+.footer__text {
+    font-family: "Inter", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: $white;
+    max-width: 400px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+        
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+.footer__link{
+    font-family: "Inter", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: underline;
+    color: $white;
+
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 11px;
+    }
+}
+
+.footer__link:hover{
+    font-style: italic;
+}

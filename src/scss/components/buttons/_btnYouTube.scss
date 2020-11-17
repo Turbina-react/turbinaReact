@@ -1,0 +1,30 @@
+.btnYouTube {
+  display: flex;
+  background: url(../../../assets/img/youtube_clip.svg) no-repeat;
+  background-size: 96px 37px;
+  cursor: pointer;
+  white-space: pre;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin: 0 8px;
+  color: $buttonTheme;
+  min-width: 96px;
+  min-height: 37px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  @media screen and (max-width: 520px) {
+    background-size: 76px 33px;
+    min-width: 76px;
+    height: 33px;
+    margin-right: 8px;
+    margin-left: 0;
+  }
+}

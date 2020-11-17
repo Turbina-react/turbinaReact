@@ -1,11 +1,17 @@
 import {combineReducers} from "redux";
 
-// import filters from './filters.js';
-// import cart from './cart.js';
-//
+import songs from "./songs";
+import active from "./active";
+import blur from "./blur";
+import musicLinks from './musicLinks';
+import socialLinks from './socialLinks';
+
 const rootReduser = combineReducers({
-  // filters,
-  // cart,
+  songs,
+  active,
+  blur,
+  musicLinks,
+  socialLinks
 })
 
 export default rootReduser
