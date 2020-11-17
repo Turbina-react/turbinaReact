@@ -69,7 +69,6 @@ const Player = () => {
     dispatch(activeTime(duration, current, false))
   }, 1000)
 
-
   useEffect(() => {
     handleControl()
   }, [choiceActiveSong])
@@ -92,10 +91,12 @@ const Player = () => {
     document.body.addEventListener('click', handleOutsideClick)
   }, [])
 
-  const handleOutsideClick = e => {    // клик вне области Player закрывает Playlist
-    const findPlayer = e.path.some((item) => item === PlayerRef.current)
+  const handleOutsideClick = event => {    // клик вне области Player закрывает Playlist
+    const path = event.path || (event.composedPath && event.composedPath());
+    const findPlayer = path.some((item) => item === PlayerRef.current)
     !findPlayer && dispatch(activeList(visibleList))
   }
+
   const startTime = (e) => {
     const onConvertMinutes = convertMinutes(Math.round(e), currentTime)
     dispatch(convertTime(onConvertMinutes))

@@ -42,29 +42,30 @@ const Header = () => {
 
   return (
     <header className='header'
-    style={{
-      height: MyHalfHeightExampleComponent(),
-    }}
+            style={{
+              height: MyHalfHeightExampleComponent(),
+            }}
     >
       <Player/>
       <div className="header__wrapper"
            style={{
              filter: visibleList && blur && "blur(4px)",
            }}>
-        <img className='header__logo' src={logoPng} alt="Трубина"/>
+        <a href="https://marshakbooks.ru/">
+          <img className='header__logo' src={logoPng} alt="Трубина" target="_blank"/>
+        </a>
         <h1 className='header__title'>
           <img className='header__title-img' src={titleSvg} alt=""/>
         </h1>
-
         <div className='header__btn-container'>
-          <div className='header__btn-checker'>
-            <ButtonStrim
-              handleRealease={handleRealease}
-              text='Стриминги'
-              resizeSpoiler
-            />
-            
-          </div>
+          {/*<div className='header__btn-checker'>*/}
+          {/*  <ButtonStrim*/}
+          {/*    handleRealease={handleRealease}*/}
+          {/*    text='Стриминги'*/}
+          {/*    resizeSpoiler*/}
+          {/*  />*/}
+
+          {/*</div>*/}
           <ul className='header__btn-spoiler'>
             {
               musicLisks.length !== 0 && musicLisks.map((item, index) => (
