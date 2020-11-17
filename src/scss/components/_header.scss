@@ -55,8 +55,12 @@
   flex-direction: column;
   align-items: flex-end;
   position: absolute;
+
   right: 10px;
   top: 10px;
+  @media screen and (max-width: 520px) {
+    margin-top: 20px;
+  }
 }
 
 .header__btn-spoiler {
@@ -64,6 +68,7 @@
   justify-content: right;
   align-items: flex-end;
   flex-direction: column;
+
 }
 .header__btn-links {
   margin-bottom: 8px;
@@ -77,6 +82,7 @@
 @media screen and (max-width: 520px) {
   .header__logo {
     width: 24px;
+    margin-top: 20px;
   }
   .header__btn-checker {
     display: block;
