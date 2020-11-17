@@ -142,7 +142,6 @@ const Player = () => {
                 visibleList && !coverPlace480 &&
                 <img className="player__cover" src={startTrack?.cover} alt="Обложка трека"/>
               }
-
               {
                 visibleList && <div className="player__button-wrapper">
                   {

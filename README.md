@@ -24,7 +24,6 @@ https://turbina-react.github.io/turbinaReact/
   * У приложения есть мобильная версия
 
 #### Используется следующий стек:
-
 * React;
 * Redux
 * Redux-thunk
@@ -33,11 +32,14 @@ https://turbina-react.github.io/turbinaReact/
 * Стили SCSS - nested структура
 
 ### Студенты [Яндекс.Практикума](https://praktikum.yandex.ru/web) принимающие участие
- * Андрей Оспенников
- * Александр Назаров
- * Артём Кулаков
- * Дмитрий Лежнин 
- * Дмитрий Ильин
+ * Александр Назаров - тимлид / разработчик
+ * Андрей Оспенников - разработчик
+ * Артём Кулаков - верстальщик
+ * Дмитрий Лежнин - верстальщик
+ * Дмитрий Ильин - верстальщик
 
+### Структура вложенности компонентов
+![Структура компонентов](https://github.com/Turbina-react/turbinaReact/raw/dev/src/assets/img/component-structure.jpg)
 
-[![Alt text for your video](https://cdn1.savepice.ru/uploads/2020/11/12/a932455dd61f32bb7c098c7f858ec09d-full.png)](https://youtu.be/s06iY0t0On0)
+### Презентация на YouTube
+[![Презентация на YouTube](https://cdn1.savepice.ru/uploads/2020/11/12/a932455dd61f32bb7c098c7f858ec09d-full.png)](https://youtu.be/s06iY0t0On0)
